@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration-line: none;
+    color: #000;
+}
+
+header {
+    height: 4em;
+    max-width: 98%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+header .logo {
+    width: 10%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header nav {
+    width: 80%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+header nav a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+}
+
+header .user-actions {
+    width: 10%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    position: relative;
+}
+
+header .user-actions .search-bar {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    transition: width 0.3s, display 0s 0.3s; /* Delays display property change until after width transition */
+    overflow: hidden;
+}
+
+header .user-actions .search-bar input {
+    width: 100%;
+}
+
+header .user-actions .search-bar.active {
+    display: block;
+    width: 150px;
+    transition: width 0.3s, display 0s 0s; /* Immediate display property change */
+}
