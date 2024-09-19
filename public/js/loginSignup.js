@@ -44,26 +44,69 @@ document.querySelectorAll(".toggle-password").forEach((item) => {
         }
     });
     // Function to handle signup form submission
+    // Function to handle signup form submission
     function handleSignupSubmit(event) {
-        // Prevent form from submitting immediately
-        event.preventDefault();
-    
-        const form = document.getElementById("signupForm");
-    
-        // Get form fields for validation
+        event.preventDefault(); // Prevent the form from submitting immediately
+
         const firstName = document.getElementById("firstName").value.trim();
         const lastName = document.getElementById("lastName").value.trim();
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
-    
+        const selectedCourses =
+            document.getElementById("selectedCourses").value;
+
         // Simple validation checks
         if (firstName && lastName && email && password.length >= 8) {
-            // All fields are valid, proceed to submit the form
-            form.submit();
+            // If validation passes, send the form data via fetch API (or form.submit() if the server handles redirection)
+            fetch("/signupPost", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN":
+                        document.querySelector("input[name=_token]").value, // for CSRF protection in Laravel
+                },
+                body: JSON.stringify({
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    password: password,
+                    selectedCourses: selectedCourses,
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.success) {
+                        // Redirect to login page on successful signup
+                        window.location.href = "/login";
+                    } else {
+                        alert("Signup failed. Please try again.");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error during signup:", error);
+                });
         } else {
-            // If validation fails, show an alert and prevent submission
-            alert("Please fill in all fields correctly. Password must be 8+ characters.");
+            alert(
+                "Please fill in all fields correctly. Password must be at least 8 characters."
+            );
         }
     }
-    
+
+    // Toggle password visibility
+    document.querySelectorAll(".toggle-password").forEach((item) => {
+        item.addEventListener("click", function () {
+            const targetInput = document.getElementById(
+                this.getAttribute("data-target")
+            );
+            const icon = this.querySelector("i");
+
+            if (targetInput.type === "password") {
+                targetInput.type = "text";
+                icon.textContent = "visibility"; // Switch to 'eye open' icon
+            } else {
+                targetInput.type = "password";
+                icon.textContent = "visibility_off"; // Switch to 'eye closed' icon
+            }
+        });
+    });
 });

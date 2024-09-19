@@ -21,7 +21,7 @@
                 <div class="input-group">
                     <input type="text" id="firstName" name="first_name" placeholder="First name" required>
                     <br/>
-                    <input type="text" id="lastName" name="first_name" placeholder="Last name" required>
+                    <input type="text" id="lastName" name="last_name" placeholder="Last name" required>
                 </div>
                 <div class="input-group">
                     <input type="email" id="email" name="email" placeholder="Email" required>
