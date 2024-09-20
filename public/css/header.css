@@ -64,4 +64,33 @@ header .user-actions .search-bar.active {
     display: block;
     width: 150px;
     transition: width 0.3s, display 0s 0s; /* Immediate display property change */
+    
+}
+/* Kebab menu styles */
+.menu-icon {
+    cursor: pointer;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px; /* Adjust based on your header height */
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 10;
+    padding: 10px;
+}
+
+.menu-dropdown a {
+    display: block;
+    padding: 8px 16px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu-dropdown a:hover {
+    background-color: #f0f0f0;
 }
