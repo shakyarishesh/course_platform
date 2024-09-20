@@ -58,10 +58,16 @@ class RegistrationController extends Controller
             User::create([
                 'name' => $email->first_name . " " . $email->last_name,
                 'email' => $request->email,
-                'password' => $email->password,  // Make sure this is hashed before saving!
+                'password' => $email->password,
             ]);
         }
 
         return redirect('/');
     }
+
+    public function logout() {
+        session()->flush();
+        return redirect('/');
+    }
+
 }

@@ -18,3 +18,6 @@ Route::view('/signup','signup');
 Route::post('/signupPost',[RegistrationController::class,'signup']);
 //for login
 Route::post('/loginPost',[RegistrationController::class,'login']);
+
+//logout
+Route::get('/logout',[RegistrationController::class,'logout']);
