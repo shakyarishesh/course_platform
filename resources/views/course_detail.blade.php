@@ -66,31 +66,85 @@
                     </div>
                 </div>
 
-                <!-- Teacher Section -->
-                <div class="teacher-details">
-                    <img src="{{ asset($coursedetail->image) }}" alt="Teacher Image" class="teacher-image">
-                    <h3>{{ $coursedetail->teacher }}</h3>
-                    <p>Top Teacher</p>
-                    <button>Follow</button>
-                    <div class="course-purchase">
-                        <h4>{{ $coursedetail->title }}</h4>
-                        <p>Price: ${{ $coursedetail->price }}</p>
-                        <button>Buy Now</button>
+                <div class="teacher-course-container">
+                    <!-- Teacher Info Section -->
+                    <div class="teacher-info">
+                        <div class="teacher-leftt">
+                            <div class="teacher-left">
+                                <img src="{{ asset($coursedetail->image) }}" alt="Teacher Image" class="teacher-image">
+                            </div>
+                            <div class="teacher-center">
+                                <h3>{{ $coursedetail->teacher }}</h3>
+                                <p class="teacher-label">Top teacher</p>
+                            </div>
+                        </div>
+                        <div class="teacher-right">
+                            <button class="follow-btn">Follow</button>
+                        </div>
+                    </div>
+
+                    <!-- Course Info Section -->
+                    <div class="courses-card">
+                        <div class="courses-header">
+                            <h3>{{ $coursedetail->title }}</h3>
+                            <div class="courses-rating">
+                                <span class="star">⭐</span>
+                                <span class="rating-value">4.5</span>
+                            </div>
+                        </div>
+
+                        <div class="courses-details">
+                            <p>Course (12 lessons) <span class="price">${{ $coursedetail->price }}</span></p>
+                            <p>Document <span class="document-badge">Free</span> <span class="price">0</span></p>
+                        </div>
+
+                        <hr>
+
+                        <div class="courses-total">
+                            <p>Total <span class="total-price">${{ $coursedetail->price }}</span></p>
+                        </div>
+
+                        <div class="courses-actions">
+                            <button class="buy-now-btn">Buy now</button>
+                            <button class="add-to-cart-btn">Add to cart</button>
+                        </div>
                     </div>
                 </div>
+
             </section>
+
             <!-- Related Courses Section - Outside of the Tabs -->
             <section class="related-courses">
-                <h2>Related courses</h2>
-                @foreach ($relatedCourses as $relatedCourse)
+                <h2>Recommended for you</h2>
                 <div class="related-course">
-                    <img src="{{ asset($relatedCourse->image) }}" alt="Related Course" class="related-course-image">
-                    <div class="related-course-info">
-                        <span>{{ $relatedCourse->title }}</span>
-                        <span>${{ $relatedCourse->price }}</span>
+                   
+                    <div class="related-course-card">
+                        <a href="">
+                            <img src="{{ asset('imgs/Course1.avif') }}" alt="bhak">
+                            <div class="related-course-info">
+                                <h3>trait_exists</h3>
+                                <p class="category">test</p>
+                                <p class="level">test</p>
+                                <p class="rating">⭐ 4.5</p>
+                                <p class="price">500</p>
+                            </div>
+                        </a>
                     </div>
+                    <div class="course-card">
+                        <a href="">
+                            <img src="{{ asset('imgs/Course1.avif') }}" alt="bhak">
+                            <div class="related-course-info">
+                                <h3>trait_exists</h3>
+                                <p class="category">test</p>
+                                <p class="level">test</p>
+                                <p class="rating">⭐ 4.5</p>
+                                <p class="price">500</p>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
-                @endforeach
+                
             </section>
 
             @endforeach
@@ -103,27 +157,28 @@
 </body>
 <script>
     // Tab functionality
-const tabButtons = document.querySelectorAll('.tab'); // Select all tab buttons
-const tabItems = document.querySelectorAll('.tab-content'); // Select all tab content sections
+    const tabButtons = document.querySelectorAll('.tab'); // Select all tab buttons
+    const tabItems = document.querySelectorAll('.tab-content'); // Select all tab content sections
 
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove 'active' class from all buttons and content sections
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabItems.forEach(item => item.classList.remove('active'));
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove 'active' class from all buttons and content sections
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabItems.forEach(item => item.classList.remove('active'));
 
-        // Add 'active' class to the clicked button
-        button.classList.add('active');
+            // Add 'active' class to the clicked button
+            button.classList.add('active');
 
-        // Get the tab content to show
-        const tabId = button.getAttribute('data-tab');
+            // Get the tab content to show
+            const tabId = button.getAttribute('data-tab');
 
-        // Show the corresponding tab content
-        const activeTab = document.getElementById(tabId);
-        if (activeTab) {
-            activeTab.classList.add('active');
-        }
+            // Show the corresponding tab content
+            const activeTab = document.getElementById(tabId);
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
+        });
     });
-});
 </script>
+
 </html>
