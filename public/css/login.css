@@ -69,6 +69,21 @@ input[type="checkbox"] {
 
 .sb-btn {
     width: 100%;
+    padding: 15px;
+    background-color: #0dcaf0;
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.sb-btn:hover {
+    background-color: #0bb8d6;
+}
+
+button {
+    width: 100%;
     padding: 12px;
     background-color: #0dcaf0;
     color: #fff;

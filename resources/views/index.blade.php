@@ -27,7 +27,6 @@
                                 <h3>{{$course->title}}</h3>
                                 <p class="category">{{ $course->category }}</p>
                                 <p class="level">{{ $course->level }}</p>
-                                <p class="rating">⭐ {{ $course->rating }} ({{ $course->reviews }})</p>
                                 <p class="price">${{ $course->price}}</p>
                             </div>
                         </a>

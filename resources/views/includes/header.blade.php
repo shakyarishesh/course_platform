@@ -48,7 +48,7 @@
         </nav>
         <div class="user-actions">
             @if (session()->has('login'))
-            <a href="#" class="profile-icon material-icons">person</a>
+            <a href="/profile" class="profile-icon material-icons">person</a>
             <a href="#" class="cart-icon material-icons">shopping_cart</a>
 
             <!-- Kebab Menu (Triple Dot) -->

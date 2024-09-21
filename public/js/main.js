@@ -2,20 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.course-card');
 
     // Function to create star rating
-    function createStarRating(rating, maxRating = 5) {
-        const ratingContainer = document.createElement('div');
-        ratingContainer.classList.add('star-rating');
+    // function createStarRating(rating, maxRating = 5) {
+    //     const ratingContainer = document.createElement('div');
+    //     ratingContainer.classList.add('star-rating');
         
-        for (let i = 1; i <= maxRating; i++) {
-            const star = document.createElement('i');
-            star.classList.add('material-icons');
-            star.textContent = i <= rating ? 'star' : 'star_border';
-            star.style.color = i <= rating ? '#FFD700' : '#ccc'; // Yellow for filled stars
-            ratingContainer.appendChild(star);
-        }
+    //     for (let i = 1; i <= maxRating; i++) {
+    //         const star = document.createElement('i');
+    //         star.classList.add('material-icons');
+    //         star.textContent = i <= rating ? 'star' : 'star_border';
+    //         star.style.color = i <= rating ? '#FFD700' : '#ccc'; // Yellow for filled stars
+    //         ratingContainer.appendChild(star);
+    //     }
 
-        return ratingContainer;
-    }
+    //     return ratingContainer;
+    // }
 
     cards.forEach(card => {
         const ratingValue = card.getAttribute('data-rating');

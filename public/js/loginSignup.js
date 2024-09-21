@@ -21,8 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 selectedCourses.push(button.getAttribute("data-value"));
             }
         });
-        selectedCoursesInput.value = selectedCourses.join(", ");
+        selectedCoursesInput.value = selectedCourses.join(', '); // Store as a comma-separated string
+        console.log(selectedCoursesInput.value); // Log the value for debugging
     }
+    
+    
 
     // Toggle password visibility for both login and signup forms
     document.querySelectorAll(".toggle-password").forEach((item) => {
@@ -42,4 +45,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
