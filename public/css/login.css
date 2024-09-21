@@ -67,7 +67,7 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
-button {
+.sb-btn {
     width: 100%;
     padding: 12px;
     background-color: #0dcaf0;
