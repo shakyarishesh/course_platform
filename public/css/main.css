@@ -11,6 +11,8 @@ body {
 /* body part */
 main {
     padding: 20px;
+    width: 80%;
+    margin: auto;
 }
 
 .recommended, .popular, .trending {
@@ -112,6 +114,8 @@ main {
 /* footer part */
 
 footer {
+    width: 90%;
+    margin: auto;
     background-color: #333333;
     padding: 20px;
     border-top: 1px solid #ddd;
