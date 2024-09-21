@@ -11,7 +11,7 @@ a {
 
 header {
     height: 4em;
-    max-width: 98%;
+    width: 80%;
     margin: auto;
     display: flex;
     justify-content: space-around;

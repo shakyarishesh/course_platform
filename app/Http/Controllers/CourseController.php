@@ -13,7 +13,7 @@ class CourseController extends Controller
         return view('index', ['courses' => $data]);
     }
 
-    public function coursesdetail($course_id)
+    public function coursesDetail($course_id)
     {
         $course = Course::where('id', $course_id)->first();
 
@@ -29,9 +29,12 @@ class CourseController extends Controller
             ->limit(3)
             ->get();
 
+        $recommended_courses = Course::all();
+
         return view('course_detail', [
             'coursedetails' => [$course],
-            'relatedCourses' => $relatedCourses
+            'relatedCourses' => $relatedCourses,
+            'recommended_courses' => $recommended_courses
         ]);
     }
 }

@@ -41,7 +41,7 @@
                         <div class="course-option" data-value="Front End">Front End</div>
                     </div>
                 </div>
-                <input type="hidden" id="selectedCourses" name="selectedCourses" value="">
+                <input type="hidden" id="selectedCourses" name="selected_courses[]" value="">
                 <input type="submit" value="Create an Account" class="sb-btn">
             </form>
             <br/>

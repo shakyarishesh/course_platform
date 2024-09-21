@@ -21,3 +21,6 @@ Route::post('/loginPost',[RegistrationController::class,'login']);
 
 //logout
 Route::get('/logout',[RegistrationController::class,'logout']);
+
+//profilr
+Route::get('/profile',[RegistrationController::class,'profile']);

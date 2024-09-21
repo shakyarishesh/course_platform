@@ -11,22 +11,26 @@ use Illuminate\Support\Facades\Hash;
 class RegistrationController extends Controller
 {
     public function signup(Request $request)
-    {
-        $reg = Register::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'selected_courses' => $request->selected_courses,
-        ]);
-        if ($reg) {
+{
+  
 
-            return redirect('/login');
-        } else {
+    // Create the new user registration
+    $reg = Register::create([
+        'first_name' => $request->first_name,
+        'last_name' => $request->last_name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'selected_courses' => json_encode($request->selected_courses),
+    ]);
 
-            return view('signup', ['message' => 'Registration Unsuccessful']);
-        }
+    // Redirect or show an error based on registration success
+    if ($reg) {
+        return redirect('/login');
+    } else {
+        return view('signup', ['message' => 'Registration Unsuccessful']);
     }
+}
+
 
     public function login(Request $request)
     {
@@ -68,6 +72,14 @@ class RegistrationController extends Controller
     public function logout() {
         session()->flush();
         return redirect('/');
+    }
+
+    public function profile()
+    {
+        $email = session()->get('login');
+        $user = User::where('email', $email)->first();
+
+        return view('profile',['userDetails'=>$user]);
     }
 
 }
