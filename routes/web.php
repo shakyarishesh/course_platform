@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +23,8 @@ Route::post('/loginPost',[RegistrationController::class,'login']);
 //logout
 Route::get('/logout',[RegistrationController::class,'logout']);
 
-//profilr
+//profile
 Route::get('/profile',[RegistrationController::class,'profile']);
+
+//for dashboard
+Route::get('/dashboard',[DashboardController::class,'getDashboard']);
