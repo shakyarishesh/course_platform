@@ -12,14 +12,13 @@ class CartController extends Controller
     public function store($course_id)
     {
         //get details of the course
-        $courses = Course::where('id',$course_id)->first();
+        $courses = Course::where('id', $course_id)->first();
 
         //get user email for user details
         $user_email = session()->get('login');
-        $user = User::where('email',$user_email)->first();
-        
-        if( session()->has('login'))
-        {
+        $user = User::where('email', $user_email)->first();
+
+        if (session()->has('login')) {
             Cart::create([
                 'user_id' => $user->id,
                 'course_id' => $course_id,
@@ -29,22 +28,20 @@ class CartController extends Controller
 
 
         return redirect('/');
-
     }
 
     public function getDashboard()
     {
         $user_email = session()->get('login');
-        $user = User::where('email',$user_email)->first();
+        $user = User::where('email', $user_email)->first();
 
-        $cart = Cart::where('user_id', $user->id)->first();
+        $cart = Cart::where('user_id', $user->id)->pluck('course_id');
+        $courses = Course::whereIn('id', $cart)->get();
 
-        $course = Course::where('id',$cart->course_id)->get();
 
-        return view('dashboard',[
+        return view('dashboard', [
             'users' => $user,
-            'courses' => $course,
+            'courses' => $courses,
         ]);
     }
- 
 }
