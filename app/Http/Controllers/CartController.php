@@ -35,13 +35,19 @@ class CartController extends Controller
         $user_email = session()->get('login');
         $user = User::where('email', $user_email)->first();
 
+
         $cart = Cart::where('user_id', $user->id)->pluck('course_id');
-        $courses = Course::whereIn('id', $cart)->get();
 
+        if ($cart->isNotEmpty()) {
+            $courses = Course::whereIn('id', $cart)->get();
+            return view('dashboard', [
+                'users' => $user,
+                'courses' => $courses,
+            ]);
+        }else{
+            return "No data available. Add something to cart to view data";
+        }
 
-        return view('dashboard', [
-            'users' => $user,
-            'courses' => $courses,
-        ]);
+        
     }
 }
