@@ -35,15 +35,6 @@
                 </div>
                 
             </section>
-
-            <section class="promotion">
-                <div class="promo-content">
-                    <h2>Digital Illustrations</h2>
-                    <p>Qui aliquip quis magna non sint voluptate officia qui. Laborum sit mollit id sint et dolore consequat.</p>
-                    <a href="#" class="explore-btn">Explore more</a>
-                </div>
-            </section>
-
             <section class="popular">
                 <h2>Popular courses</h2>
                 <div class="courses">
