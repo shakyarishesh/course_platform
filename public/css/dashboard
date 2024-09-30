@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    width: 90%;
+    margin: auto;
+}
+
+
+
+.profile-section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+}
+
+.profile-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.user-info h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.user-info p {
+    font-size: 16px;
+    color: #777;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #00bfff;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #777;
+}
+
+/* Highlighted Course Styling */
+.courses-section{
+    width: 85%;
+    margin: auto;
+}
+.saved-course {
+    margin-bottom: 40px;
+}
+
+.saved-course-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: space-between; /* Ensures price goes to the right */
+    margin-bottom: 2em;
+}
+
+.course-image-large {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.course-info-large {
+    flex-grow: 1;
+}
+
+.course-info-large h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.course-info-large p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.saved-course-details {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.course-price {
+    font-size: 22px;
+    color: #00bfff;
+    font-weight: 700;
+    margin-left: 20px;
+    white-space: nowrap; /* Ensures the price doesn't break */
+}
+

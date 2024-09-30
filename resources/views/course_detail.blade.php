@@ -109,7 +109,7 @@
 
                             <div class="courses-actions">
                                 <button class="buy-now-btn">Buy now</button>
-                                <button class="add-to-cart-btn">Add to cart</button>
+                                <a href="/cart/{{$coursedetail->id}}"><button class="add-to-cart-btn">Add to cart</button></a> 
                             </div>
                         </div>
                     </div>
