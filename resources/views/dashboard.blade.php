@@ -10,6 +10,7 @@
 </head>
 
 <body>
+  @include('includes.header')
   <main>
     <section class="profile-section">
       <div class="profile-card">

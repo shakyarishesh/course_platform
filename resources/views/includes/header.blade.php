@@ -151,7 +151,7 @@
             <div class="user-profile-container">
                 @if (session()->has('login'))
                     <div class="user-profile">
-                        <img src="imgs/Course1.avif" alt="User Photo" class="user-photo">
+                        <img src="{{asset('imgs/Course1.avif')}}" alt="User Photo" class="user-photo">
                         <i class="fas fa-chevron-down chevron-down"></i>
                     </div>
                     <div class="dropdown-menu">

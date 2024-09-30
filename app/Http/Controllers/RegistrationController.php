@@ -63,6 +63,7 @@ class RegistrationController extends Controller
                 'name' => $email->first_name . " " . $email->last_name,
                 'email' => $request->email,
                 'password' => $email->password,
+                'reg_id' => $email->id,
             ]);
         }
 
