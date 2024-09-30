@@ -39,6 +39,8 @@
                         <div class="course-option" data-value="ML and AI">ML and AI</div>
                         <div class="course-option" data-value="Back End">Back End</div>
                         <div class="course-option" data-value="Front End">Front End</div>
+                        <div class="course-option" data-value="QA">QA</div>
+                        <div class="course-option" data-value="DevOps">DevOps</div>
                     </div>
                 </div>
                 <input type="hidden" id="selectedCourses" name="selected_courses[]" value="">
