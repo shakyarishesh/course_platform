@@ -35,10 +35,9 @@
                     @endforeach
                 </div>
                 <!-- Pagination Links -->
-                <div class="pagination">
-                    {{ $courses->links() }}
-                </div>
-
+                    <div class="pagination">
+                        {!! $courses->links('pagination::bootstrap-4') !!}
+                    </div>
             </section>
 
             <section class="promotion">
