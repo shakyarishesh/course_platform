@@ -21,7 +21,8 @@
       </div>
       <div class="stats">
           <div class="stat-item">
-              <span class="stat-number">25</span>
+            {{-- numbers in cart --}}
+              <span class="stat-number">25</span> 
               <span class="stat-label">Save</span>
           </div>
           <div class="stat-item">
@@ -37,39 +38,21 @@
     <section class="courses-section">
       <h2>Saved Courses</h2>
       <div class="saved-course">
+        @foreach ($courses as $course)
         <div class="saved-course-card">
           <img src="imgs/Course1.avif" alt="Product Design" class="course-image-large" />
           <div class="course-info-large">
-            <h3>Product Design</h3>
-            <p>Dennis Sweeney</p>
+            <h3>{{$course->title}}</h3>
+            <p>{{$course->teacher}}</p>
             <div class="saved-course-details">
               <span>12 lessons</span>
             </div>
           </div>
-          <div class="course-price">$190</div>
+          <div class="course-price">{{$course->price}}</div>
         </div>
-        <div class="saved-course-card">
-          <img src="imgs/Course1.avif" alt="Product Design" class="course-image-large" />
-          <div class="course-info-large">
-            <h3>Product Design</h3>
-            <p>Dennis Sweeney</p>
-            <div class="saved-course-details">
-              <span>12 lessons</span>
-            </div>
-          </div>
-          <div class="course-price">$190</div>
-        </div>
-        <div class="saved-course-card">
-          <img src="imgs/Course1.avif" alt="Product Design" class="course-image-large" />
-          <div class="course-info-large">
-            <h3>Product Design</h3>
-            <p>Dennis Sweeney</p>
-            <div class="saved-course-details">
-              <span>12 lessons</span>
-            </div>
-          </div>
-          <div class="course-price">$190</div>
-        </div>
+        @endforeach
+        
+       
       </div>
     </section>
   </main>

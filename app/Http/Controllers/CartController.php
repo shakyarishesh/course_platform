@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Cart;
+use App\Models\Course;
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class CartController extends Controller
+{
+    public function store($course_id)
+    {
+        //get details of the course
+        $courses = Course::where('id',$course_id)->first();
+
+        //get user email for user details
+        $user_email = session()->get('login');
+        $user = User::where('email',$user_email)->first();
+        
+        if( session()->has('login'))
+        {
+            Cart::create([
+                'user_id' => $user->id,
+                'course_id' => $course_id,
+                'status' => 'pending',
+            ]);
+        }
+
+
+        return redirect('/');
+
+    }
+
+    public function getDashboard()
+    {
+        $user_email = session()->get('login');
+        $user = User::where('email',$user_email)->first();
+
+        $cart = Cart::where('user_id', $user->id)->first();
+
+        $course = Course::where('id',$cart->course_id)->get();
+
+        return view('dashboard',[
+            'users' => $user,
+            'courses' => $course,
+        ]);
+    }
+ 
+}

@@ -132,6 +132,11 @@
     <header>
         <nav class="navbar">
             <div class="logo">Logo</div>
+            <!-- Search bar form -->
+            {{-- <form action="/search" method="GET" class="search-form">
+                <input type="text" name="query" placeholder="Search..." class="search-input">
+                <button type="submit" class="search-button">Search</button>
+            </form> --}}
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="#">My Courses</a></li>
