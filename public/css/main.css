@@ -114,7 +114,7 @@ main {
 /* footer part */
 
 footer {
-    width: 90%;
+    width: 80%;
     margin: auto;
     background-color: #333333;
     padding: 20px;
@@ -130,35 +130,6 @@ footer {
     color: #FFFFFF;
 }
 
-.footer-links {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.footer-links .column {
-    text-align: left;
-}
-
-.footer-links .column h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #FFFFFF;
-}
-
-.footer-links .column ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links .column ul li {
-    margin-bottom: 5px;
-}
-
-.footer-links .column ul li a {
-    text-decoration: none;
-    color: #FFFFFF;
-}
 
 .footer-social {
     margin-bottom: 20px;

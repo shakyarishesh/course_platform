@@ -41,7 +41,7 @@
                     </div>
                 @else
                     <div>
-                        <button class="action-button" onclick="window.location.href='/login'">Login</button>
+                        <span class="login-button" onclick="window.location.href='/login'">Login</span>
                         <button class="action-button" onclick="window.location.href='/signup'">Signup</button>
                     </div>
                 @endif

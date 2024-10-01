@@ -1,21 +1,6 @@
 
 <footer>
-        <div class="footer-links">
-            <div class="column">
-                <h3>Product</h3>
-                <ul>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="column">
-                <h3>Company</h3>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Join us</a></li>
-                </ul>
-            </div>
-        </div>
+        
         <div class="footer-social">
             <h3>Follow Us on</h3>
             <div class="social-icons">

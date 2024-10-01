@@ -105,13 +105,13 @@ header {
 .action-button {
     background-color: #87CEFA;
     /* Light blue color */
-    color: white;
+    color: black;
     /* Text color */
     border: none;
     /* Remove border */
-    border-radius: 25px;
+    border-radius: 15px;
     /* Oval corners */
-    padding: 10px 20px;
+    padding: 5px 15px;
     /* Padding for button */
     font-size: 16px;
     /* Font size */
@@ -124,6 +124,27 @@ header {
 }
 
 .action-button:hover {
+    color: white;
     background-color: #1E90FF;
     /* Darker blue on hover */
+}
+
+.login-button {
+    background-color: white;
+    /* Light blue color */
+    color: #1E90FF;
+    /* Text color */
+    padding: 5px 10px;
+    /* Padding for button */
+    font-size: 16px;
+    /* Font size */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth transition */
+    margin: 5px;
+    /* Space between buttons */
+}
+.login-button:hover{
+    color: #0080ff;
 }
