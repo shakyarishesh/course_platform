@@ -23,7 +23,7 @@
                     @foreach ($courses as $course)
                         <div class="course-card">
                             <a href="/course_detail/{{ $course->id }}">
-                                <img src="{{ asset($course->image) }}" alt="{{ $course->title }}">
+                                <img src="/imgs/{{$course->image}}" alt="{{ $course->title }}">
                                 <div class="course-info">
                                     <h3>{{ $course->title }}</h3>
                                     <p class="category">{{ $course->category }}</p>

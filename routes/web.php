@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
@@ -11,8 +12,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+//admin
+Route::get('/admin/login', [AdminController::class, 'showAdminForm'])->name('admin.loginForm');
+Route::post('/admin/loginPost', [AdminController::class, 'adminLogin'])->name('admin.login');
+Route::view('/admin/dashboard','admin.dashboard')->name("admin.dashboard");
+
 Route::get('/',[CourseController::class,'courses']);
-Route::get('/course_detail/{course_id}',[CourseController::class,'coursesDetail']);
+Route::get('/course_detail/{course_id}',[CourseController::class,'coursesDetail'])->name('course_details');
 Route::get('/search',[SearchController::class,'test']);
 
 //for login

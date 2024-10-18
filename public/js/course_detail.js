@@ -21,3 +21,22 @@ tabButtons.forEach(button => {
         }
     });
 });
+
+
+
+    const container = document.querySelector('.related-courses-container');
+
+    function scrollLeft() {
+        container.scrollBy({
+            left: -250, // Adjust based on card size
+            behavior: 'smooth'
+        });
+    }
+
+    function scrollRight() {
+        container.scrollBy({
+            left: 250, // Adjust based on card size
+            behavior: 'smooth'
+        });
+    }
+

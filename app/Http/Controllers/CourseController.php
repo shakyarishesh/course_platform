@@ -21,54 +21,54 @@ class CourseController extends Controller
 
     //index page with recommending the user with selected courses
     public function courses()
-{
-    if (session()->get('login')) {
-        // Assuming the user is authenticated
-        $user_email = session()->get('login');
-        $user = User::where('email', $user_email)->first();
+    {
+        if (session()->get('login')) {
+            // Assuming the user is authenticated
+            $user_email = session()->get('login');
+            $user = User::where('email', $user_email)->first();
 
-        $reg = Register::where('id', $user->reg_id)->first();
+            $reg = Register::where('id', $user->reg_id)->first();
 
-        // Get user's selected courses
-        $selectedCourses = json_decode($reg->selected_courses); // Assuming it's stored as a JSON array
-        if (!empty($selectedCourses)) {
-            $selectedCoursesArray = explode(',', $selectedCourses[0]);
-            $selectedCoursesArray = array_map('trim', $selectedCoursesArray); // Remove extra spaces
+            // Get user's selected courses
+            $selectedCourses = json_decode($reg->selected_courses); // Assuming it's stored as a JSON array
+            if (!empty($selectedCourses)) {
+                $selectedCoursesArray = explode(',', $selectedCourses[0]);
+                $selectedCoursesArray = array_map('trim', $selectedCoursesArray); // Remove extra spaces
 
-            // Get all courses from the database
-            $allCourses = Course::all();
+                // Get all courses from the database
+                $allCourses = Course::all();
 
-            // Convert user's selected courses to a binary vector based on course categories
-            $userVector = $this->createCategoryVector($selectedCoursesArray, $allCourses);
+                // Convert user's selected courses to a binary vector based on course categories
+                $userVector = $this->createCategoryVector($selectedCoursesArray, $allCourses);
 
-            // Calculate cosine similarity for each course in the database
-            $similarityScores = $allCourses->map(function ($course) use ($userVector, $allCourses) {
-                $courseVector = $this->createCategoryVector([$course->category], $allCourses);
-                return [
-                    'course' => $course,
-                    'similarity' => $this->cosineSimilarity($userVector, $courseVector),
-                ];
-            });
+                // Calculate cosine similarity for each course in the database
+                $similarityScores = $allCourses->map(function ($course) use ($userVector, $allCourses) {
+                    $courseVector = $this->createCategoryVector([$course->category], $allCourses);
+                    return [
+                        'course' => $course,
+                        'similarity' => $this->cosineSimilarity($userVector, $courseVector),
+                    ];
+                });
 
-            // Sort courses by similarity in descending order
-            $sortedCourses = $similarityScores->sortByDesc('similarity')->pluck('course');
+                // Sort courses by similarity in descending order
+                $sortedCourses = $similarityScores->sortByDesc('similarity')->pluck('course');
 
-            // Paginate the sorted courses (e.g., 10 courses per page)
-            $currentPage = LengthAwarePaginator::resolveCurrentPage();
-            $perPage = 8;
-            $currentPageItems = $sortedCourses->slice(($currentPage - 1) * $perPage, $perPage)->all();
-            $paginatedCourses = new LengthAwarePaginator($currentPageItems, $sortedCourses->count(), $perPage, $currentPage, [
-                'path' => LengthAwarePaginator::resolveCurrentPath(),
-            ]);
+                // Paginate the sorted courses (e.g., 10 courses per page)
+                $currentPage = LengthAwarePaginator::resolveCurrentPage();
+                $perPage = 8;
+                $currentPageItems = $sortedCourses->slice(($currentPage - 1) * $perPage, $perPage)->all();
+                $paginatedCourses = new LengthAwarePaginator($currentPageItems, $sortedCourses->count(), $perPage, $currentPage, [
+                    'path' => LengthAwarePaginator::resolveCurrentPath(),
+                ]);
 
-            return view('index', ['courses' => $paginatedCourses]);
+                return view('index', ['courses' => $paginatedCourses]);
+            }
         }
-    }
 
-    // If the user is not authenticated, or no selected courses are found, return all courses
-    $data = Course::paginate(8); // Change this line to use pagination
-    return view('index', ['courses' => $data]);
-}
+        // If the user is not authenticated, or no selected courses are found, return all courses
+        $data = Course::paginate(8); // Change this line to use pagination
+        return view('index', ['courses' => $data]);
+    }
 
 
     // Create a category vector for a set of selected categories
@@ -97,14 +97,6 @@ class CourseController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
     public function coursesDetail($course_id)
     {
         $course = Course::where('id', $course_id)->first();
@@ -113,7 +105,8 @@ class CourseController extends Controller
             abort(404, 'Course not found.');
         }
 
-        $course->benefits = json_decode($course->benefits, true);
+        // Split the comma-separated benefits into an array
+        $course->benefits = array_map('trim', explode(',', $course->benefits));
 
         // Fetch related courses (example: same category, excluding the current course)
         $relatedCourses = Course::where('category', $course->category)

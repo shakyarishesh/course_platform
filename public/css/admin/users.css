@@ -1,0 +1,44 @@
+
+
+.main-content {
+    margin-left: 220px; /* Adjust for sidebar */
+    padding: 20px;
+}
+
+
+.main-content h2{
+    margin-bottom: 2rem;
+}
+.card {
+    border-radius: 10px; /* Rounded corners for the cards */
+}
+
+.table {
+    border-radius: 10px; /* Rounded corners for the table */
+    overflow: hidden; /* Ensures rounded corners are visible */
+}
+
+.table th {
+    background-color: #343a40; /* Black header */
+    color: white;
+}
+
+.table td {
+    vertical-align: middle; /* Center align buttons in table */
+}
+
+/* Edit and delete button styles */
+.btn-icon {
+    border: none; /* Remove border */
+    background: none; /* Remove background */
+    color: black; /* Default button color */
+}
+
+.btn-icon:hover {
+    color: black; /* Color on hover (amber) */
+}
+
+
+.btn-danger:hover {
+    color: white; /* Red color on hover for delete */
+}

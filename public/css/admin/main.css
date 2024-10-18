@@ -1,0 +1,49 @@
+body {
+    background-color: #f8f9fa; /* Light background */
+}
+.navbar{
+    background-color: #000;
+}
+.sidebar {
+    width: 200px; /* Increased width */
+    position: fixed;
+    top: 56px; /* Height of the navbar */
+    bottom: 0;
+    left: 0;
+    background-color: #000; /* Dark background */
+
+}
+.navbar-brand{
+    color: orange;
+    font-weight: bold;
+}
+.sidebar a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: #495057; /* Hover effect */
+}
+
+.main-content {
+    margin-left: 220px; /* Adjust for sidebar */
+    padding: 20px;
+}
+
+.main-content h2{
+    margin-bottom: 2rem;
+}
+
+.card {
+    border-radius: 10px; /* Rounded corners for the cards */
+}
+.card-body{
+    height: 7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
