@@ -3,8 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #FFFFFF;
-    background-color: #1b1b1b;
+    color: #333333;
+    background-color: #F5F5F5;
 }
 
 
@@ -22,23 +22,22 @@ main {
 .recommended h2, .popular h2, .trending h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #FFFFFF;
+    color: #333333;
 }
 
 .courses {
     display: flex;
-    gap :10px;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .course-card {
-    background-color: #3A3A3A;
-    border: .5px solid #444;
+    background-color: #FFFFFF;
+    border: 1px solid #ddd;
     border-radius: 4px;
     width: 23%;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
@@ -47,13 +46,13 @@ main {
 .course-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    border: .5px solid #3c9fd7;
-    background-color: #444;
+    background-color: #E1E1E1;
+    color: #333333;
 }
 
 .course-card img {
     max-width: 100%;
-    /* border-bottom: 1px solid #ddd; */
+    border-bottom: 1px solid #ddd;
     margin-bottom: 10px;
 }
 
@@ -64,19 +63,13 @@ main {
 .course-info h3 {
     font-size: 18px;
     margin: 10px 0;
-    color: white;
+    color: #333333;
 }
 
-.course-info .category, .course-info .level, .course-info .rating,  .course-info .bestseller, .course-info .discount {
+.course-info .category, .course-info .level, .course-info .rating, .course-info .price, .course-info .bestseller, .course-info .discount {
     font-size: 14px;
     margin: 5px 0;
-    color: #BBBBBB;
-}
-.course-info .price{
-    font-weight: bold;
-    font-size: 14px;
-    margin: 5px 0;
-    color: #3C9FD7;
+    color: #333333;
 }
 
 .course-info .bestseller, .course-info .discount {
@@ -118,6 +111,62 @@ main {
     background-color: #357ABD;
 }
 
+/* footer part */
+
+footer {
+    width: 80%;
+    margin: auto;
+    background-color: #333333;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+
+.footer-social {
+    margin-bottom: 20px;
+}
+
+.footer-social h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+}
+
+.footer-social .social-icons a {
+    text-decoration: none;
+    margin: 0 5px;
+    color: #FFFFFF;
+}
+
+.footer-language {
+    margin-bottom: 20px;
+}
+
+.footer-language label {
+    font-size: 14px;
+    margin-right: 10px;
+    color: #FFFFFF;
+}
+
+.footer-bottom {
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.footer-bottom a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -133,27 +182,27 @@ main {
 .pagination span {
     display: block;
     padding: 10px 15px;
-    border: 1px solid #444444; /* Updated border color */
-    color: #BBBBBB; /* Inactive page color */
+    border: 1px solid #007bff; /* Bootstrap primary color */
+    color: #007bff;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s;
 }
 
 .pagination a:hover {
-    background-color: #3C9FD7; /* Light blue on hover */
-    color: #FFFFFF; /* White text on hover */
+    background-color: #007bff; /* Change to Bootstrap primary color on hover */
+    color: white;
 }
 
 .pagination .active span {
-    background-color: #2E8BC0; /* Active page color */
-    color: #FFFFFF; /* White text for active page */
-    border: 1px solid #2E8BC0;
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
 }
 
 .pagination .disabled span {
-    color: #888888; /* Disabled page color */
-    border: 1px solid #444444; /* Matches border color */
+    color: #6c757d; /* Bootstrap secondary color for disabled */
+    border: 1px solid #6c757d;
 }
 
 .pagination .ellipsis {

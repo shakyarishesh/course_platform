@@ -2,12 +2,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Set the overall background to dark */
 }
 
 a {
     text-decoration-line: none;
-    color: #fff; /* Link color for dark theme */
+    color: #000;
 }
 
 .breadcrumb {
@@ -16,12 +15,11 @@ a {
 
 .breadcrumb a {
     text-decoration: none;
-    color: #fff; /* Breadcrumb link color */
+    color: #000;
 }
 
 h1 {
     font-size: 2rem;
-    color: #fff; /* Heading color */
 }
 
 .course-rating {
@@ -32,7 +30,7 @@ h1 {
 }
 
 .course-rating .material-icons {
-    color: gold;
+    color: #f39c12;
 }
 
 /* Images Section */
@@ -49,7 +47,7 @@ h1 {
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .small-images {
@@ -65,38 +63,36 @@ h1 {
     height: 50%;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Course Content Wrapper: Updated for Black Theme */
+/* Course Content Wrapper: Independent Flex Layout */
 .course-content-wrapper {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    background-color: #1e1e1e; /* Dark background for the wrapper */
-    border: 1px solid #444; /* Border to define the section */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding for better spacing */
-    color: #fff; /* Text color for all content within this section */
 }
 
 /* Tabs Section */
 .tabs-section {
     flex: 2;
+    /* Occupies 2/3 of the space */
     max-width: 100%;
-    background-color: #1e1e1e; /* Dark background for tabs section */
-    color: #fff; /* Text color for tabs */
+    background-color: white;
 }
 
+/* Fixed height for tab content */
 .tab-content {
     height: 400px;
+    /* Fixed height */
     overflow-y: auto;
-    background-color: #2e2e2e; /* Slightly lighter for tab content */
-    color: #fff; /* Text color for tab content */
+    /* Enable vertical scrolling for overflowing content */
 }
 
+/* Fix tabs by ensuring buttons and content are aligned correctly */
 .tabs {
     display: flex;
+
 }
 
 .tab {
@@ -104,41 +100,44 @@ h1 {
     border: none;
     cursor: pointer;
     outline: none;
-    background-color: #1e1e1e; /* Dark background for tabs */
-    color: #fff; /* Text color for tabs */
+    background-color: white;
 }
 
 .tab.active {
-    border-bottom: solid 2px #444;
-    color: #fff; /* Active tab text color */
+    border-bottom: solid 2px #0073e6;
+    color: #0073e6;
 }
 
 .tab-content {
     display: none;
-    background-color: #2e2e2e; /* Darker background for tab content */
+    /* Hide by default */
+    background-color: #fff;
     padding: 20px;
-    border-top: 1px solid #444; /* Change border color for dark theme */
+    border-top: 1px solid whitesmoke;
+
 }
 
 .tab-content.active {
     display: block;
+    /* Show the active tab */
 }
 
 .tab-content h2 {
     margin-top: 0;
-    color: #fff; /* Heading color inside tab content */
 }
 
+/* Ensure "class description" has the right scroll behavior */
 #description {
     max-height: 400px;
     overflow-y: auto;
 }
 
+/* Container to hold both sections */
 .teacher-course-container {
-    background-color: #1e1e1e; /* Dark background for teacher container */
+    background-color: #fff;
     padding: 20px;
-    border-left: 1px solid #444; /* Border to differentiate */
-    color: #fff; /* Text color for teacher container */
+    width: 25%;
+    border-left: 1px solid whitesmoke;
 }
 
 /* Teacher Info Section */
@@ -149,10 +148,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-.teacher-leftt {
+.teacher-leftt{
     display: flex;
-}
 
+}
 .teacher-left {
     display: flex;
     align-items: center;
@@ -163,7 +162,7 @@ h1 {
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #444; /* Adjusted border for dark theme */
+    border: 3px solid #f0f0f0;
     margin-right: 15px;
 }
 
@@ -171,22 +170,21 @@ h1 {
     margin: 0;
     font-size: 1.2em;
     font-weight: bold;
-    color: #fff; /* Teacher name color */
 }
 
 .teacher-label {
     display: inline-block;
     padding: 4px 8px;
-    background-color: #444; /* Darker label background */
-    color: #fff; /* Label text color */
+    background-color: #f4eaff;
+    color: #6f42c1;
     font-size: 0.9em;
     border-radius: 15px;
     margin-top: 5px;
 }
 
 .teacher-right .follow-btn {
-    background-color: #555; /* Dark button background */
-    color: #fff; /* Button text color */
+    background-color: #e0f7fa;
+    color: #007bff;
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
@@ -196,15 +194,14 @@ h1 {
 }
 
 .teacher-right .follow-btn:hover {
-    background-color: #444; /* Darker on hover */
+    background-color: #b2ebf2;
 }
 
 /* Course Card */
 .courses-card {
     padding: 20px;
-    background-color: #1e1e1e; /* Dark background for course card */
+    background-color: #f9f9f9;
     text-align: left;
-    color: #fff; /* Text color for course card */
 }
 
 .courses-header {
@@ -221,7 +218,6 @@ h1 {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    color: #fff; /* Title color */
 }
 
 .courses-rating {
@@ -231,7 +227,7 @@ h1 {
 }
 
 .courses-rating .star {
-    color: #666;
+    color: gold;
 }
 
 .courses-details {
@@ -243,11 +239,11 @@ h1 {
     justify-content: space-between;
     margin: 10px 0;
     font-size: 1em;
-    color: #fff; /* Details text color */
+    color: #333;
 }
 
 .document-badge {
-    background-color: #999; /* Darker document badge */
+    background-color: #ff8c00;
     color: white;
     padding: 3px 8px;
     border-radius: 5px;
@@ -257,12 +253,11 @@ h1 {
 .price {
     font-weight: bold;
     font-size: 1em;
-    color: #3C9FD7; /* Price color */
 }
 
 hr {
     border: none;
-    border-top: 1px solid #444; /* Darker horizontal rule */
+    border-top: 1px solid #eee;
     margin: 20px 0;
 }
 
@@ -271,11 +266,11 @@ hr {
     justify-content: space-between;
     font-size: 1.2em;
     font-weight: bold;
-    color: #fff; /* Total price text color */
+    color: #333;
 }
 
 .total-price {
-    color: #666; /* Darker total price color */
+    color: #00bcd4;
 }
 
 /* Buttons */
@@ -295,50 +290,50 @@ hr {
 }
 
 .buy-now-btn {
-    background-color: #666; /* Dark button background */
-    color: white; /* Button text color */
+    background-color: #00bcd4;
+    color: white;
 }
 
 .buy-now-btn:hover {
-    background-color: #444; /* Darker on hover */
+    background-color: #00a7c0;
 }
 
 .add-to-cart-btn {
-    background-color: #1e1e1e; /* Dark button background */
-    border: 2px solid #666; /* Button border */
-    color: #666; /* Button text color */
+    background-color: white;
+    border: 2px solid #00bcd4;
+    color: #00bcd4;
 }
 
 .add-to-cart-btn:hover {
-    background-color: #444; /* Darker on hover */
+    background-color: #e0f7fa;
 }
 
+
 /* Related Courses Section */
-.related-courses {
+.related-courses{
     margin-bottom: 40px;
 }
 
-.related-courses h2 {
+.recommended h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #fff; /* Related courses title color */
-    margin: 20px 0px 20px 0px;
+    color: #333333;
 }
 
 .related-course {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: baseline;
     gap: 10px;
     flex-wrap: wrap;
 }
 
 .related-course-card {
-    background-color: #3a3a3a; /* Dark background for related course cards */
-    border: .5px solid #444; /* Border color */
+    background-color: #FFFFFF;
+    border: 1px solid #ddd;
     border-radius: 4px;
     width: 23%;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
@@ -347,12 +342,13 @@ hr {
 .related-course-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    background-color: #3c9fd7; /* Lighter on hover */
-    color: #444; /* Text color on hover */
+    background-color: #E1E1E1;
+    color: #333333;
 }
 
 .related-course-card img {
     max-width: 100%;
+    border-bottom: 1px solid #ddd;
     margin-bottom: 10px;
 }
 
@@ -363,27 +359,16 @@ hr {
 .related-course-info h3 {
     font-size: 18px;
     margin: 10px 0;
-    color: #fff; /* Title color */
+    color: #333333;
 }
 
-.related-course-info .category,
-.related-course-info .level,
-.related-course-info .rating,
-.related-course-info .bestseller,
-.related-course-info .discount {
+.related-course-info .category, .related-course-info .level, .related-course-info .rating, .related-course-info .price, .related-course-info .bestseller, .related-course-info .discount {
     font-size: 14px;
     margin: 5px 0;
-    color: #fff; /* Info text color */
-}
-.related-course-info .price {
-    font-weight: bold;
-    font-size: 14px;
-    margin: 5px 0;
-    color: #3C9FD7; /* Price color */
+    color: #333333;
 }
 
-.related-course-info .bestseller,
-.related-course-info .discount {
+.related-course-info .bestseller, .related-course-info .discount {
     font-weight: bold;
-    color: #fff; /* Bestseller and discount color */
+    color: #e74c3c;
 }
