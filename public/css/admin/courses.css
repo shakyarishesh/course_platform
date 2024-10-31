@@ -1,0 +1,71 @@
+body {
+    background-color: #f8f9fa; /* Light background */
+}
+.navbar{
+    background-color: #000;
+}
+.sidebar {
+    width: 200px; /* Increased width */
+    position: fixed;
+    top: 56px; /* Height of the navbar */
+    bottom: 0;
+    left: 0;
+    background-color: #000; /* Dark background */
+
+}
+.navbar-brand{
+    color: orange;
+    font-weight: bold;
+}
+.sidebar a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: #495057; /* Hover effect */
+}
+.main-content {
+    margin-left: 220px; /* Adjust for sidebar */
+    padding: 20px;
+}
+
+.main-content h2{
+    margin-bottom: 2rem;
+}
+
+.card {
+    border-radius: 10px; /* Rounded corners for the cards */
+    justify-content: center;
+}
+
+.table {
+    border-radius: 10px; /* Rounded corners for the table */
+    overflow: hidden; /* Ensures rounded corners are visible */
+}
+
+.table th {
+    background-color: #343a40; /* Black header */
+    color: white;
+}
+
+.table td {
+    vertical-align: middle; /* Center align buttons in table */
+}
+
+/* Edit and delete button styles */
+.btn-icon {
+    border: none; /* Remove border */
+    background: none; /* Remove background */
+    color: black; /* Default button color */
+}
+
+.btn-icon:hover {
+    color: black; /* Color on hover (amber) */
+}
+
+.btn-danger:hover {
+    color: white; /* Red color on hover for delete */
+}

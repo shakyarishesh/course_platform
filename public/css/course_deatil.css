@@ -372,3 +372,61 @@ hr {
     font-weight: bold;
     color: #e74c3c;
 }
+
+/* recommended courses scrollable */
+.related-courses-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.related-courses-container {
+    display: flex;
+    overflow-x: scroll; /* Enables horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    gap: 16px; /* Adds space between cards */
+    width: calc(100% - 80px); /* Adjust to make space for arrows */
+}
+
+.related-course-card {
+    min-width: 250px; /* Adjust based on card size */
+    flex-shrink: 0; /* Prevent shrinking when scrolling */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.scroll-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.scroll-btn.left {
+    left: 0;
+}
+
+.scroll-btn.right {
+    right: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+}
+
+.related-course-info {
+    padding: 10px;
+}
+
+.related-courses-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar */
+}
