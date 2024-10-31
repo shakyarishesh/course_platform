@@ -12,6 +12,8 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+
 </head>
 
 <body>
@@ -45,8 +47,8 @@
                     <div class="tabs-section">
                         <div class="tabs">
                             <button class="tab active" data-tab="description">Class description</button>
-                            <button class="tab" data-tab="benefits">Benefits</button>
-                            <button class="tab" data-tab="reviews">Reviews ({{ $coursedetail->reviews }})</button>
+                            {{-- <button class="tab" data-tab="benefits">Benefits</button>
+                            <button class="tab" data-tab="reviews">Reviews ({{ $coursedetail->reviews }})</button> --}}
                         </div>
 
                         <!-- Tab Contents -->
@@ -54,7 +56,7 @@
                             <h2>Class description</h2>
                             <p>{{ $coursedetail->description }}</p>
                         </div>
-                        <div class="tab-content" id="benefits">
+                        {{-- <div class="tab-content" id="benefits">
                             <h2>Benefits</h2>
                             <ul>
                                 @foreach ($coursedetail->benefits as $benefit)
@@ -65,7 +67,7 @@
                         <div class="tab-content" id="reviews">
                             <h2>Reviews ({{ $coursedetail->reviews }})</h2>
                             <!-- Reviews content goes here -->
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="teacher-course-container">
