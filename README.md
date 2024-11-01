@@ -97,12 +97,10 @@ Ensure you have the following installed:
 
     For any inquiries, please contact:
 
-    ### Project Member: Anuj Kafle (FrontEnd,Designer) , Rishesh Shakya(BackEnd Developer)
-
-    ### Email: anuj.kafle145@gmail.com
-
-    ### GitHub: AnujKafle,shakyarishesh
+    ###### Project Member: Anuj Kafle (FrontEnd,Designer) , Rishesh Shakya(BackEnd Developer)
+    ###### Email: anuj.kafle145@gmail.com
+    ###### GitHub: AnujKafle,shakyarishesh
    
-   ## Thank you for using our E-Learning Platform. We hope it empowers your educational journey! Feel free to reach out with feedback and ideas for improvement.
+   ###### Thank you for using our E-Learning Platform. We hope it empowers your educational journey! Feel free to reach out with feedback and ideas for improvement.
 
    
