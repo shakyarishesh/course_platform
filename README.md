@@ -54,38 +54,38 @@ Ensure you have the following installed:
    php artisan serve
    ```
    	•	Access the platform at http://localhost:8000 in your browser.
-##Usage
+    ## Usage
 
-    ###Registration and Enrollment
+    ### Registration and Enrollment
 
 	•	Register an account and select at least one course of interest.
 	•	Users who skip this step will not be able to access recommendations.
 
-    ###Exploring Courses
+    ### Exploring Courses
 
 	•	Browse the course catalog, filtered by categories and popularity.
 	•	View detailed course pages to find information about content, syllabus, and instructors.
 
-    ###Enrolling in Courses
+    ### Enrolling in Courses
 
 	•	Enroll in recommended or popular courses, contributing to course popularity metrics updated in real-time.
 
-    ###Technologies Used
+    ### Technologies Used
 
 	•	Framework: Laravel (PHP)
 	•	Database: MySQL
 	•	Frontend: Blade templates, CSS, JavaScript
 	•	Deployment: (Specify if deploying on services like DigitalOcean, AWS, etc.)
 
-    ##Contributing
+    ## Contributing
 
-    ###Contributions are welcome! To contribute:
+    ### Contributions are welcome! To contribute:
 
-    	1.	Fork this repository.
-    	2.	Create a branch for your feature (git checkout -b feature-name).
-    	3.	Commit your changes (git commit -m "Add feature").
-    	4.	Push to your branch (git push origin feature-name).
-    	5.	Submit a pull request.
+    1.	Fork this repository.
+    2.	Create a branch for your feature (git checkout -b feature-name).
+    3.	Commit your changes (git commit -m "Add feature").
+    4.	Push to your branch (git push origin feature-name).
+    5.	Submit a pull request.
 
     Please adhere to the coding standards and conventions.
 
@@ -97,10 +97,9 @@ Ensure you have the following installed:
 
     For any inquiries, please contact:
 
-    Project Lead: Anuj Kafle
-    Email: anujkafle@example.com
-    GitHub: Anuj Kafle
-
+    Project Member: Anuj Kafle (FrontEnd,Designer) , Rishesh Shakya(BackEnd Developer)
+    Email: anuj.kafle145@gmail.com
+    GitHub: AnujKafle,shakyarishesh
     Thank you for using our E-Learning Platform. We hope it empowers your educational journey! Feel free to reach out with feedback and ideas for improvement.
 
    
