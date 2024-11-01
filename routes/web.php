@@ -34,3 +34,7 @@ Route::get('/profile',[RegistrationController::class,'profile']);
 //for dashboard
 Route::get('/dashboard',[CartController::class,'getDashboard']);
 Route::get('/cart/{course_id}',[CartController::class,'store']);
+
+//adminpanel
+Route::view('/admin/courses','admin.courses');
+Route::view('/admin/users','admin.users');
