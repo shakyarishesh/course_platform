@@ -31,8 +31,8 @@ Ensure you have the following installed:
 ### Steps
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/e-learning-platform.git
-   cd e-learning-platform
+   git clone https://github.com/shakyarishesh/course_platform
+   cd course_platform
 2. **Install Dependencies**
    ```bash
        composer install
