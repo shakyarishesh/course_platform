@@ -33,5 +33,74 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/yourusername/e-learning-platform.git
    cd e-learning-platform
-2.	Install dependencies
+2. **Install Dependencies**
+   ```bash
+       composer install
+3. **Set up database**
+    •	Create a new MySQL database.
+	•	Configure your .env file with the database credentials:
+   ```bash
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=your_database_name
+    DB_USERNAME=your_username
+    DB_PASSWORD=your_password
+5. **Run migrations and seed the database**
+   ```bash
+   php artisan migrate --seed
+6. **Start the Laravel development server**
+   ```bash
+   php artisan serve
+   ```
+   	•	Access the platform at http://localhost:8000 in your browser.
+##Usage
+
+    ###Registration and Enrollment
+
+	•	Register an account and select at least one course of interest.
+	•	Users who skip this step will not be able to access recommendations.
+
+    ###Exploring Courses
+
+	•	Browse the course catalog, filtered by categories and popularity.
+	•	View detailed course pages to find information about content, syllabus, and instructors.
+
+    ###Enrolling in Courses
+
+	•	Enroll in recommended or popular courses, contributing to course popularity metrics updated in real-time.
+
+    ###Technologies Used
+
+	•	Framework: Laravel (PHP)
+	•	Database: MySQL
+	•	Frontend: Blade templates, CSS, JavaScript
+	•	Deployment: (Specify if deploying on services like DigitalOcean, AWS, etc.)
+
+    ##Contributing
+
+    ###Contributions are welcome! To contribute:
+
+    	1.	Fork this repository.
+    	2.	Create a branch for your feature (git checkout -b feature-name).
+    	3.	Commit your changes (git commit -m "Add feature").
+    	4.	Push to your branch (git push origin feature-name).
+    	5.	Submit a pull request.
+
+    Please adhere to the coding standards and conventions.
+
+    License
+
+    This project is licensed under the MIT License - see the LICENSE file for details.
+
+    Contact
+
+    For any inquiries, please contact:
+
+    Project Lead: Anuj Kafle
+    Email: anujkafle@example.com
+    GitHub: Anuj Kafle
+
+    Thank you for using our E-Learning Platform. We hope it empowers your educational journey! Feel free to reach out with feedback and ideas for improvement.
+
    
