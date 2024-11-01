@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <h5 class="navbar-brand">Admin Dashboard</h5>
-            <button class="btn btn-danger ms-auto" type="button">Logout</button>
+            <button class="btn" type="button">Logout</button>
         </div>
     </nav>
 

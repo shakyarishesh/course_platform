@@ -2,13 +2,21 @@
 body {
     background-color: #1a1a1a; /* Dark background */
 }
-navbar {
+.navbar {
     background-color: #000; /* Dark navbar */
 }
 
 .navbar-brand {
     color: #ffcc00; /* Highlight color for brand */
     font-weight: bold;
+}
+.navbar .btn{
+    background-color: red;
+    color: white;
+}
+.navbar .btn:hover{
+    background-color: rgb(185, 0, 0);
+    color: white;
 }
 
 .sidebar {

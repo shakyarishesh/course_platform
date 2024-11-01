@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ asset('css/admin/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/admin-main.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" rel="stylesheet">
     <title>Admin Dashboard - Home</title>
 </head>
@@ -16,7 +16,7 @@
     <nav class="navbar ">
         <div class="container-fluid">
             <h5 class="navbar-brand navbar-dark navbar-expand-lg">Admin Dashboard</h5>
-            <button class="btn btn-danger ms-auto" type="button">Logout</button>
+            <button class="btn" type="button">Logout</button>
         </div>
     </nav>
 
