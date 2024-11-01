@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Details</title>
+    <title></title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/course_deatil.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
@@ -12,6 +12,8 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+
 </head>
 
 <body>
@@ -29,13 +31,13 @@
                     <span class="material-icons">star</span>{{ $coursedetail->rating }} {{ $coursedetail->reviews }}
                     {{ $coursedetail->teacher }}
                 </div>
-              
+                <!-- <img src="{{ asset($coursedetail->image) }}" alt="Side Image 1"> -->
                 <!-- Updated Images Section -->
                 <section class="course-images">
-                    <img src="/imgs/{{$coursedetail->image}}" alt="Side Image 1" class="large-image">
+                    <img src="{{ asset($coursedetail->image) }}" alt="Side Image 1" class="large-image">
                     <div class="small-images">
-                        <img src="/imgs/{{ $coursedetail->image}}" alt="Side Image 1" class="small-image">
-                        <img src="/imgs/{{ $coursedetail->image}}" alt="Side Image 1" class="small-image">
+                        <img src="{{ asset($coursedetail->image) }}" alt="Side Image 1" class="small-image">
+                        <img src="{{ asset($coursedetail->image) }}" alt="Side Image 1" class="small-image">
                     </div>
                 </section>
 
@@ -45,8 +47,8 @@
                     <div class="tabs-section">
                         <div class="tabs">
                             <button class="tab active" data-tab="description">Class description</button>
-                            <button class="tab" data-tab="benefits">Benefits</button>
-                            <button class="tab" data-tab="reviews">Reviews ({{ $coursedetail->reviews }})</button>
+                            {{-- <button class="tab" data-tab="benefits">Benefits</button>
+                            <button class="tab" data-tab="reviews">Reviews ({{ $coursedetail->reviews }})</button> --}}
                         </div>
 
                         <!-- Tab Contents -->
@@ -54,7 +56,7 @@
                             <h2>Class description</h2>
                             <p>{{ $coursedetail->description }}</p>
                         </div>
-                        <div class="tab-content" id="benefits">
+                        {{-- <div class="tab-content" id="benefits">
                             <h2>Benefits</h2>
                             <ul>
                                 @foreach ($coursedetail->benefits as $benefit)
@@ -65,7 +67,7 @@
                         <div class="tab-content" id="reviews">
                             <h2>Reviews ({{ $coursedetail->reviews }})</h2>
                             <!-- Reviews content goes here -->
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="teacher-course-container">
@@ -73,7 +75,7 @@
                         <div class="teacher-info">
                             <div class="teacher-leftt">
                                 <div class="teacher-left">
-                                    <img src="/imgs/{{$coursedetail->image}}" alt="Teacher Image"
+                                    <img src="{{ asset($coursedetail->image) }}" alt="Teacher Image"
                                         class="teacher-image">
                                 </div>
                                 <div class="teacher-center">
@@ -108,10 +110,8 @@
                             </div>
 
                             <div class="courses-actions">
-                                {{-- <button class="buy-now-btn">Buy now</button> --}}
-                                <a href="/cart/{{$coursedetail->id}}" onclick="return confirmAddToCart();">
-                                    <button class="add-to-cart-btn">Add to cart</button>
-                                </a> 
+                                <button class="buy-now-btn">Buy now</button>
+                                <a href="/cart/{{$coursedetail->id}}"><button class="add-to-cart-btn">Add to cart</button></a> 
                             </div>
                         </div>
                     </div>
@@ -121,28 +121,23 @@
                 <!-- Related Courses Section - Outside of the Tabs -->
                 <section class="related-courses">
                     <h2>Recommended for you</h2>
-                    <div class="related-courses-wrapper">
-                        <button class="scroll-btn left" onclick="scrollLeft()">&#8249;</button> <!-- Left arrow -->
-                        
-                        <div class="related-courses-container">
-                            @foreach ($recommended_courses as $recommendcourse)
-                                <div class="related-course-card">
-                                    <a href="/course_detail/{{ $recommendcourse->id }}">
-                                        <img src="/imgs/{{ $recommendcourse->image}}" alt="{{ $recommendcourse->category }}">
-                                        <div class="related-course-info">
-                                            <h3>{{ $recommendcourse->title }}</h3>
-                                            <p class="category">{{ $recommendcourse->category }}</p>
-                                            <p class="level">{{ $recommendcourse->level }}</p>
-                                            <p class="price">{{ $recommendcourse->price }}</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                
-                        <button class="scroll-btn right" onclick="scrollRight()">&#8250;</button> <!-- Right arrow -->
+                    <div class="related-course">
+                        @foreach ($recommended_courses as $recommendcourse)
+                            <div class="related-course-card">
+                                <a href="/course_detail/{{ $recommendcourse->id }}">
+                                    <img src="{{ asset($recommendcourse->image) }}" alt="{{$recommendcourse->category}}">
+                                    <div class="related-course-info">
+                                        <h3>{{$recommendcourse->title}}</h3>
+                                        <p class="category">{{$recommendcourse->category}}</p>
+                                        <p class="level">{{$recommendcourse->level}}</p>
+                                        <p class="price">{{$recommendcourse->price}}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
-                </section>                
+
+                </section>
             @endforeach
 
         </main>
@@ -151,14 +146,5 @@
     </div>
     <script src="{{ asset('js/course_detail.js') }}"></script>
 </body>
-<script>
-    function confirmAddToCart() {
-        // Ask the user for confirmation
-        const userConfirmation = confirm("Do you want to add this to your cart?");
 
-        // If user clicks "OK", return true and allow the navigation, otherwise return false
-        return userConfirmation;
-    }
-</script>
 </html>
-

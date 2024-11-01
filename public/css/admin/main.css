@@ -1,9 +1,17 @@
+/* Admin Panel Styles */
 body {
-    background-color: #f8f9fa; /* Light background */
+    background-color: #1a1a1a; /* Dark background */
 }
-.navbar{
-    background-color: #000;
+
+.navbar {
+    background-color: #000; /* Dark navbar */
 }
+
+.navbar-brand {
+    color: #ffcc00; /* Highlight color for brand */
+    font-weight: bold;
+}
+
 .sidebar {
     width: 200px; /* Increased width */
     position: fixed;
@@ -11,39 +19,67 @@ body {
     bottom: 0;
     left: 0;
     background-color: #000; /* Dark background */
+}
 
-}
-.navbar-brand{
-    color: orange;
-    font-weight: bold;
-}
 .sidebar a {
-    color: white;
+    color: #ffffff; /* White text for links */
     padding: 10px;
     text-decoration: none;
     display: block;
 }
 
-.sidebar a:hover, .sidebar a.active {
-    background-color: #495057; /* Hover effect */
+.sidebar a:hover,
+.sidebar a.active {
+    background-color: #495057; /* Darker hover effect */
 }
 
 .main-content {
     margin-left: 220px; /* Adjust for sidebar */
     padding: 20px;
+    color: #ffffff; /* White text in main content */
 }
 
-.main-content h2{
-    margin-bottom: 2rem;
+.main-content h2 {
+    margin-bottom: 2rem; /* Space below titles */
+    color: #ffcc00; /* Highlighted color for headings */
 }
 
 .card {
-    border-radius: 10px; /* Rounded corners for the cards */
-}
-.card-body{
-    height: 7em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border-radius: 10px; /* Rounded corners for cards */
+    background-color: #333; /* Card background */
+    color: #ffffff; /* White text for cards */
 }
 
+.card-body {
+    height: fit-content; /* Allow height to adjust based on content */
+    width: 100%; /* Full width */
+}
+
+/* Button Styles */
+.btn-icon {
+    border: none; /* Remove border */
+    background: none; /* Remove background */
+    color: #ffffff; /* White color for icons */
+}
+
+.btn-icon:hover {
+    color: #ffcc00; /* Color on hover */
+}
+
+.btn-danger {
+    color: #ff0000; /* Red color for delete button */
+}
+
+.btn-danger:hover {
+    color: #ffffff; /* White on hover for delete */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary button background */
+    border: none; /* Remove border */
+    color: #ffffff; /* White text */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
