@@ -1,7 +1,6 @@
-
 a {
     text-decoration-line: none;
-    color: #000;
+    color: #BBBBBB;
 }
 
 * {
@@ -11,24 +10,22 @@ a {
     font-family: Arial, sans-serif;
 }
 
-body {
-    background-color: #f9f9f9;
-    color: #333;
-}
-
 header {
-    width: 80%;
+    height: 4em;
+    width: 100%;
     margin: auto
 }
 
 .navbar {
-    background-color: #fff;
+    height: 100%;
+    background-color: #1f1f1f;
     padding: 10px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: .5px solid #B1B2B4;
     position: relative;
+    color: #888888;
 }
 
 .nav-links {
@@ -42,13 +39,13 @@ header {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: #BBBBBB;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .nav-links a.active {
-    color: #00bfff;
+    color: #FFFFFF;
 }
 
 .user-profile {
@@ -103,9 +100,9 @@ header {
 }
 
 .action-button {
-    background-color: #87CEFA;
+    background-color: #2E8BC0;
     /* Light blue color */
-    color: black;
+    color: white;
     /* Text color */
     border: none;
     /* Remove border */
@@ -125,14 +122,13 @@ header {
 
 .action-button:hover {
     color: white;
-    background-color: #1E90FF;
+    background-color: #3C9FD7;
     /* Darker blue on hover */
 }
 
 .login-button {
-    background-color: white;
     /* Light blue color */
-    color: #1E90FF;
+    color: #BBBBBB;
     /* Text color */
     padding: 5px 10px;
     /* Padding for button */
@@ -146,5 +142,5 @@ header {
     /* Space between buttons */
 }
 .login-button:hover{
-    color: #0080ff;
+    color: white;
 }
