@@ -22,9 +22,8 @@
             </form> --}}
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="#">My Courses</a></li>
-                <li><a href="#">Promotions</a></li>
-                <li><a href="#">Support</a></li>
+                <li><a href="#">Browse Courses</a></li>
+                <li><a href="#">Contact Us</a></li>
                 @if (session()->has('login'))
                     <li><a href="/dashboard" class="active">Dashboard</a></li>
                 @endif
