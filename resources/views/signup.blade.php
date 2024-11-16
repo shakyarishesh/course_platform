@@ -36,7 +36,7 @@
                     <p>Select Your Course of Interest</p>
                     <div class="courses">
                         <div class="course-option" data-value="UI/UX Design">UI/UX </div>
-                        <div class="course-option" data-value="ML and AI">ML and AI</div>
+                        <div class="course-option" data-value="ML">ML</div>
                         <div class="course-option" data-value="Back End">Back End</div>
                         <div class="course-option" data-value="Front End">Front End</div>
                         <div class="course-option" data-value="QA">QA</div>
@@ -50,7 +50,7 @@
             <p>Already have an account? <a href="/login">Log in</a></p>
         </div>
         <div class="image-section">
-            <img src="imgs/Course1.avif" alt="Background Image">
+            <img src="storage/imgs/Course4.avif" alt="Background Image">
         </div>
     </div>
     <script src="js/loginSignup.js"></script>
