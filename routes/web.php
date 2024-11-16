@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CourseController as AdminCourseController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\BrowseController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
@@ -49,4 +50,5 @@ Route::get('/dashboard',[CartController::class,'getDashboard']);
 Route::get('/cart/{course_id}',[CartController::class,'store']);
 
 //for browse
-Route::view('/browse','browse')->name('browse');
+Route::get('/browse', [BrowseController::class , 'index'])->name('browse');
+Route::get('/search', [BrowseController::class , 'search'])->name('search');
