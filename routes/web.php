@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CourseController as AdminCourseController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
@@ -19,8 +20,9 @@ Route::post('/admin/loginPost', [AdminController::class, 'adminLogin'])->name('a
 Route::view('/admin/dashboard','admin.dashboard')->name("admin.dashboard");
 Route::get('/admin/courses',[AdminCourseController::class, 'showCourses'])->name('admin.view.course');
 
-Route::get('/admin/users', [AdminCourseController::class, 'getUsers'])->name('admin.view.users');
-Route::put('/admin/edit/users/{user_id}', [AdminCourseController::class, 'editUsers'])->name('admin.edit.user');
+Route::get('/admin/users', [UserController::class, 'getUsers'])->name('admin.view.users');
+Route::put('/admin/edit/users/{user_id}', [UserController::class, 'editUsers'])->name('admin.edit.user');
+Route::get('/admin/users/{user_id}', [UserController::class, 'deleteUsers'])->name('admin.delete.user');
 
 Route::post('/admin/courses', [AdminCourseController::class, 'storeCourses'])->name('admin.store.course');
 Route::get('/admin/courses/{course_id}', [AdminCourseController::class, 'deleteCourses'])->name('admin.delete.course');

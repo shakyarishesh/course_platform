@@ -51,7 +51,8 @@
                                 <i class="bi bi-pencil"></i>
                             </button>
                             <button class="btn btn-icon btn-danger">
-                                <i class="bi bi-trash"></i>
+                                    <a href="{{ route('admin.delete.user', $user->id) }}">
+                                        <i class="bi bi-trash"></i>
                             </button>
                         </td>
                     </tr>
