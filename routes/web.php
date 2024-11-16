@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CourseController as AdminCourseController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\BrowseController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //admin
 Route::get('/admin/login', [AdminController::class, 'showAdminForm'])->name('admin.loginForm');
 Route::post('/admin/loginPost', [AdminController::class, 'adminLogin'])->name('admin.login');
-Route::view('/admin/dashboard','admin.dashboard')->name("admin.dashboard");
+Route::get('/admin/dashboard',[AdminCourseController::class,'dashboard'])->name("admin.dashboard");
 Route::get('/admin/courses',[AdminCourseController::class, 'showCourses'])->name('admin.view.course');
 
 Route::get('/admin/users', [UserController::class, 'getUsers'])->name('admin.view.users');
@@ -28,6 +29,8 @@ Route::post('/admin/courses', [AdminCourseController::class, 'storeCourses'])->n
 Route::get('/admin/courses/{course_id}', [AdminCourseController::class, 'deleteCourses'])->name('admin.delete.course');
 Route::put('/admin/edit/courses/{course_id}', [AdminCourseController::class, 'editCourses'])->name('admin.edit.course');
 
+
+//for courses
 Route::get('/',[CourseController::class,'courses']);
 Route::get('/course_detail/{course_id}',[CourseController::class,'coursesDetail'])->name('course_details');
 Route::get('/search',[SearchController::class,'test']);
@@ -47,4 +50,5 @@ Route::get('/dashboard',[CartController::class,'getDashboard']);
 Route::get('/cart/{course_id}',[CartController::class,'store']);
 
 //for browse
-Route::view('/browse','browse')->name('browse');
+Route::get('/browse', [BrowseController::class , 'index'])->name('browse');
+Route::get('/search', [BrowseController::class , 'search'])->name('search');

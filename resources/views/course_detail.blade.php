@@ -31,13 +31,13 @@
                     <span class="material-icons">star</span>{{ $coursedetail->rating }} {{ $coursedetail->reviews }}
                     {{ $coursedetail->teacher }}
                 </div>
-                <!-- <img src="storage/{{$course->image}}" alt="Side Image 1"> -->
+                <!-- <img src="storage/{{$coursedetail->image}}" alt="Side Image 1"> -->
                 <!-- Updated Images Section -->
                 <section class="course-images">
-                    <img src="storage/{{$course->image}}" alt="Side Image 1" class="large-image">
+                    <img src="storage/{{$coursedetail->image}}" alt="Side Image 1" class="large-image">
                     <div class="small-images">
-                        <img src="storage/{{$course->image}}" alt="Side Image 1" class="small-image">
-                        <img src="storage/{{$course->image}}" alt="Side Image 1" class="small-image">
+                        <img src="storage/{{$coursedetail->image}}" alt="Side Image 1" class="small-image">
+                        <img src="storage/{{$coursedetail->image}}" alt="Side Image 1" class="small-image">
                     </div>
                 </section>
 
