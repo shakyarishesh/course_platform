@@ -147,8 +147,9 @@
                                 <i class="bi bi-pencil"></i>
                             </button>
                             <button class="btn btn-icon btn-danger">
-                                <a href="{{ route('admin.delete.course', $course->id) }}"><i
-                                        class="bi bi-trash"></i></a>
+                                <a href="{{ route('admin.delete.course', $course->id) }}">
+                                    <i class="bi bi-trash"></i>
+                                </a>
                             </button>
                         </td>
                     </tr>

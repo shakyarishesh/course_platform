@@ -4,6 +4,11 @@ body {
 }
 .navbar {
     background-color: #000; /* Dark navbar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above other elements */
 }
 
 .navbar-brand {
@@ -91,6 +96,8 @@ body {
 
 .btn-icon:hover {
     color: #ffcc00; /* Hover color */
+    color: black;
+
 }
 
 .btn-danger {
@@ -98,6 +105,14 @@ body {
 }
 
 .btn-danger:hover {
+    color: #ffffff; /* White on hover for delete */
+}
+
+.btn-danger a {
+    color: #ff0000; /* Red color for delete button */
+}
+
+.btn-danger a:hover {
     color: #ffffff; /* White on hover for delete */
 }
 
