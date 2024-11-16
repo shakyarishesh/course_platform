@@ -9,49 +9,6 @@
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Search Section */
-        h2{
-            margin-bottom: 20px;
-        }
-        .search-section {
-            padding: 20px 0;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .search-form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .search-input {
-            width: 50%;
-            padding: 10px 15px;
-            border: 1px solid #444444;
-            border-radius: 5px;
-            background-color: #333333;
-            color: #FFFFFF;
-            font-size: 16px;
-        }
-
-        .search-button {
-            padding: 10px 20px;
-            background-color: #2E8BC0;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .search-button:hover {
-            background-color: #3C9FD7;
-        }
-    </style>
 </head>
 
 <body>
