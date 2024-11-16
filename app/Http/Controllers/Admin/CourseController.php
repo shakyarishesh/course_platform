@@ -9,25 +9,6 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    public function getUsers()
-    {
-        $users = User::paginate(3);
-
-        return view('admin.users', compact('users'));
-    }
-
-    public function editUsers(Request $request, $user_id)
-    {
-        $users = Course::findOrFail($user_id);
-        $validate_data=$request->validate([
-            'user_name'=>'required',
-            'user_email'=>'required|email'
-        ]);
-        $users->update($validate_data);
-        // Return a success response (you can adjust as needed)
-        return redirect()->back()->with('success', 'User Credentials updated successfully.');
-    }
-
     public function showCourses()
     {
         $courses = Course::paginate(10);
@@ -51,11 +32,11 @@ class CourseController extends Controller
             'benefits' => 'required',
         ]);
 
-        // if($request->hasFile('image'))
-        // {
-        //     $path = $request->file('image')->store('imgs', 'public');
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('imgs', 'public');
+            $validate_data['image'] = $path;
+        }
 
-        // }
 
         $courses = Course::insert($validate_data);
 
@@ -64,8 +45,6 @@ class CourseController extends Controller
         }
 
         return redirect()->back()->with(['error' => 'courses could not be added']);
-
-
     }
 
     public function deleteCourses($course_id)

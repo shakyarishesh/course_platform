@@ -43,7 +43,7 @@
         <!-- Add Course Form -->
         <div class="card mb-4" style="width: 80%;">
             <div class="card-body">
-                <form id="add-course-form" action="{{ route('admin.store.course') }}" method="POST">
+                <form id="add-course-form" action="{{ route('admin.store.course') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Course Title</label>
