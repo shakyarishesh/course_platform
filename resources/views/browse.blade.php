@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Search Section */
+        h2{
+            margin-bottom: 20px;
+        }
         .search-section {
             padding: 20px 0;
             text-align: center;
@@ -57,8 +60,12 @@
 
         <main>
             <section class="search-section">
-                <form action="/search" method="GET" class="search-form">
-                    <input type="text" name="query" placeholder="Search for courses..." class="search-input">
+                <form action="{{ route('browse') }}" method="GET" class="search-form">
+                    <input type="text" 
+                           name="query" 
+                           placeholder="Search for courses..." 
+                           class="search-input"
+                           value="{{ request('query') }}">
                     <button type="submit" class="search-button">
                         <i class="fas fa-search"></i> Search
                     </button>
@@ -67,21 +74,24 @@
 
             <section class="course-list">
                 <h2>All Courses</h2>
-                {{-- <div class="courses">
-                    @foreach ($courses as $course)
-                        <div class="course-card">
-                            <a href="/course_detail/{{ $course->id }}">
-                                <img src="storage/{{$course->image}}" alt="{{ $course->title }}">
-                                <div class="course-info">
-                                    <h3>{{ $course->title }}</h3>
-                                    <p class="category">{{ $course->category }}</p>
-                                    <p class="level">{{ $course->level }}</p>
-                                    <p class="price">${{ $course->price }}</p>
+                    <div class="container mt-4">
+                        <div class="courses">
+                            @foreach ($courses as $course)
+                                <div class="course-card">
+                                    <a href="/course_detail/{{ $course->id }}">
+                                        <img src="storage/{{$course->image}}" alt="{{ $course->title }}">
+                                        <div class="course-info">
+                                            <h3>{{ $course->title }}</h3>
+                                            <p class="category">{{ $course->category }}</p>
+                                            <p class="level">{{ $course->level }}</p>
+                                            <p class="price">${{ $course->price }}</p>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
+                            @endforeach
                         </div>
-                    @endforeach
-                </div> --}}
+                        
+                    </div>
             </section>
         </main>
 
