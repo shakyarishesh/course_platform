@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
+    public function dashboard()
+    {
+        $courses = Course::count();
+        $users = User::count();
+
+        return view('admin.dashboard', compact('courses', 'users'));
+
+    }
     public function showCourses()
     {
         $courses = Course::paginate(10);
