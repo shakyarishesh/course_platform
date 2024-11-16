@@ -10,7 +10,6 @@ class BrowseController extends Controller
 
     public function index()
     {
-        // Fetch all courses with pagination (e.g., 8 courses per page)
         $courses = Course::all();
 
         // Return the browse view with the paginated courses
@@ -25,7 +24,7 @@ class BrowseController extends Controller
         // Fetch courses, filtering by title if a search query exists
         $courses = Course::when($searchQuery, function ($query, $searchQuery) {
             $query->where('title', 'LIKE', "%$searchQuery%");
-        })->paginate(8); // Paginate results (8 courses per page)
+        })->get(); 
     
         // Return the browse view with the filtered courses
         return view('browse', ['courses' => $courses, 'searchQuery' => $searchQuery]);
