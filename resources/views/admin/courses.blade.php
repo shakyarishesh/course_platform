@@ -27,6 +27,16 @@
         <a href="/admin/users">Users</a>
     </div>
 
+    @if (session('error'))
+    <div style="color: red;">
+        {{ session('error') }}
+    </div>
+        
+    @elseif (session('message'))
+    <div style="color: green;">
+        {{session('message')}}
+    </div>
+    @endif
     <!-- Main Content -->
     <div class="main-content">
         <h2>Manage Courses</h2>
@@ -34,26 +44,55 @@
         <!-- Add Course Form -->
         <div class="card mb-4" style="width: 80%;">
             <div class="card-body">
-                <form id="add-course-form">
+                <form id="add-course-form" action="{{route('admin.store.course')}}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Course Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="Enter course title" />
+                        <input type="text" name="title" class="form-control" id="title" placeholder="Enter course title" />
                     </div>
                     <div class="mb-3">
                         <label for="teacher" class="form-label">Teacher</label>
-                        <input type="text" name="course_name" class="form-control" id="teacher" placeholder="Enter teacher's name" />
+                        <input type="text" name="teacher" class="form-control" id="teacher" placeholder="Enter teacher's name" />
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Course Description</label>
-                        <textarea class="form-control" id="description" rows="3" placeholder="Enter course description"></textarea>
+                        <textarea class="form-control" name="description" id="description" rows="3" placeholder="Enter course description"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="price" placeholder="Enter course price" />
+                        <input type="number" name="price" class="form-control" id="price" placeholder="Enter course price" />
                     </div>
+
                     <div class="mb-3">
-                        <label for="image" class="form-label">Course Image URL</label>
-                        <input type="text" class="form-control" id="image" placeholder="Enter image URL" />
+                        <label for="category" class="form-label">Category</label>
+                        <select id="courses" name="category" >
+                            <option value="UI/UX Design">UI/UX</option>
+                            <option value="ML and AI">ML and AI</option>
+                            <option value="Back End">Back End</option>
+                            <option value="Front End">Front End</option>
+                            <option value="QA">QA</option>
+                            <option value="DevOps">DevOps</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="level" class="form-label">Level</label>
+                        <input type="text" name="level" class="form-control" id="category" placeholder="Enter level" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="discount" class="form-label">Discount</label>
+                        <input type="text" name="discount" class="form-control" id="discount" placeholder="Enter discount" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="benefits" class="form-label">Benefits</label>
+                        <input type="text" name="benefits" class="form-control" id="benefits" placeholder="Eg: comma seperated value , " />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Course Image</label>
+                        <input type="file" name="image" class="form-control" id="image" placeholder="Enter image URL" />
                     </div>
                     <button type="submit" class="btn">Add Course</button>
                 </form>
@@ -64,29 +103,45 @@
         <table class="table  table-bordered" style="width: 80%;">
             <thead>
                 <tr>
+                    <th style="width: 30%;">S.N.</th>
                     <th style="width: 30%;">Course Title</th>
                     <th style="width: 30%;">Teacher</th>
-                    <th style="width: 30%;">Course Description</th>
+                    <th style="width: 30%;">Course Price</th>
+                    <th style="width: 30%;">Course Image</th>
+                    <th style="width: 30%;">Course Category</th>
+                    <th style="width: 30%;">Course Level</th>
+                    <th style="width: 30%;">Discount</th>
                     <th style="width: 10%;">Actions</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($courses as $key=>$course)
                 <tr>
-                    <td>Machine Learning</td>
-                    <td>John Doe</td>
-                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus repellat molestias doloremque alias, iusto vero veritatis voluptates ratione voluptatum aliquam id, quaerat velit aperiam temporibus quas laboriosam cum ullam ipsam.</td>
+                    <td>{{++$key}}</td>
+                    <td>{{$course->title}}</td>
+                    <td>{{$course->teacher}}</td>
+                    <td>{{$course->price}}</td>
+                    <td>{{$course->image}}</td>
+                    <td>{{$course->category}}</td>
+                    <td>{{$course->level}}</td>
+                    <td>{{$course->discount}}%</td>
                     <td>
                         <button class="btn btn-icon btn-warning" data-bs-toggle="modal" data-bs-target="#editCourseModal">
                             <i class="bi bi-pencil"></i>
                         </button>
                         <button class="btn btn-icon btn-danger">
-                            <i class="bi bi-trash"></i>
+                            <a href="{{route('admin.delete.course', $course->id)}}"><i class="bi bi-trash"></i></a>
                         </button>
                     </td>
                 </tr>
-                <!-- Add more courses here -->
+                    
+                @endforeach
+                
             </tbody>
         </table>
+        <div class="pagination">
+            {{$courses->links('pagination::bootstrap-4')}}
+        </div>
     </div>
 
     <!-- Edit Course Modal -->
