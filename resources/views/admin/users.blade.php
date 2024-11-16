@@ -22,7 +22,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <a href="/admin/dashboard">Dashboard</a>
-        <a href="/admin/courses" >Courses</a>
+        <a href="/admin/courses">Courses</a>
         <a href="/admin/users" class="active">Users</a>
     </div>
     <!-- Main Content -->
@@ -32,26 +32,36 @@
         <table class="table table-bordered" style="width: 80%;">
             <thead>
                 <tr>
+                    <th>S.N.</th>
                     <th style="width: 30%;">User Name</th>
-                    <th style="width: 60%;" >Email</th>
+                    <th style="width: 60%;">Email</th>
                     <th style="width: 10%;">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>john.doe@example.com</td>
-                    <td>
-                        <button class="btn btn-icon btn-warning" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                            <i class="bi bi-pencil"></i>
-                        </button>
-                        <button class="btn btn-icon btn-danger">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </td>
-                </tr>
+                @foreach ($users as $key => $user)
+                    <tr>
+                        <td>{{ ++$key }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>
+                            <button class="btn btn-icon btn-warning" data-bs-toggle="modal"
+                                data-bs-target="#editUserModal"
+                                onclick="setEditModalData('{{ $user->id }}', '{{ $user->name }}', '{{ $user->email }}')">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-icon btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
+
             </tbody>
         </table>
+        <div class="pagination">
+            {{ $users->links('pagination::bootstrap-4') }}
+        </div>
     </div>
 
     <!-- Edit User Modal -->
@@ -63,14 +73,17 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="editUserForm" method="POST" action="">
+                        @csrf
+                        @method('PUT')
                         <div class="mb-3">
                             <label for="edit-user-name" class="form-label">User Name</label>
-                            <input type="text" class="form-control" id="edit-user-name" value="John Doe" />
+                            <input type="text" name="user_name" class="form-control" id="edit-user-name" value="" />
                         </div>
                         <div class="mb-3">
                             <label for="edit-user-email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="edit-user-email" value="john.doe@example.com" />
+                            <input type="email" name="user_email" class="form-control" id="edit-user-email" value="" />
+                            
                         </div>
                     </form>
                 </div>
@@ -84,6 +97,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        function setEditModalData(userId, userName, userEmail) {
+            // Set the form action
+            const form = document.getElementById('editUserForm');
+            form.action = `{{ route('admin.edit.user', ':id') }}`.replace(':id', userId);
+
+            // Populate modal fields
+            document.getElementById('edit-user-name').value = userName;
+            document.getElementById('edit-user-email').value = userEmail;
+        }
+    </script>
 </body>
 
 </html>
