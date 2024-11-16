@@ -22,7 +22,7 @@
             </form> --}}
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="{{route('browse.blade.php')}}">Browse Courses</a></li>
+                <li><a href="{{route('browse')}}">Browse Courses</a></li>
                 <li><a href="#">Contact Us</a></li>
                 @if (session()->has('login'))
                     <li><a href="/dashboard" class="active">Dashboard</a></li>

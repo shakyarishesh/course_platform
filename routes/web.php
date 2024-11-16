@@ -48,4 +48,5 @@ Route::get('/profile',[RegistrationController::class,'profile']);
 Route::get('/dashboard',[CartController::class,'getDashboard']);
 Route::get('/cart/{course_id}',[CartController::class,'store']);
 
-
+//for browse
+Route::view('/browse','browse')->name('browse');
