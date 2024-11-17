@@ -41,18 +41,30 @@
                     </div>
             </section>
             <section class="popular">
-                <h2>Popular courses</h2>
+                <h2>Available courses</h2>
                 <div class="courses">
                     <!-- Popular courses here -->
+                    <div class="container mt-4">
+                        <div class="courses">
+                            @foreach ($courses as $course)
+                                <div class="course-card">
+                                    <a href="/course_detail/{{ $course->id }}">
+                                        <img src="storage/{{ $course->image }}" alt="{{ $course->title }}">
+                                        <div class="course-info">
+                                            <h3>{{ $course->title }}</h3>
+                                            <p class="category">{{ $course->category }}</p>
+                                            <p class="level">{{ $course->level }}</p>
+                                            <p class="price">${{ $course->price }}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+    
+                    </div>
                 </div>
             </section>
 
-            <section class="trending">
-                <h2>Trending courses</h2>
-                <div class="courses">
-                    <!-- Trending courses here -->
-                </div>
-            </section>
         </main>
 
         @include('includes.footer') <!-- Include the footer -->
