@@ -26,8 +26,15 @@ class AdminController extends Controller
             $admin = Admin::where('email', $request->email)->first();
             if($request->email == $admin->email && Hash::check($request->password, $admin->password))
             {
-                return view('admin.dashboard');
+                session()->put('adminLogin', $admin);
+                return redirect()->route('admin.dashboard');
             }
         }
+    }
+
+    public function adminLogout()
+    {
+        session()->flush();
+        return redirect()->route('admin.loginForm');
     }
 }

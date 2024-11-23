@@ -22,7 +22,7 @@
         <!-- Login Form -->
         <div id="login" class="form-container">
             <div class="form-left">
-                <img src="storage/{{$course->image}}" alt="Login Image">
+                <img src="../storage/imgs/Course2.avif" alt="Login Image">
             </div>
             <div class="form-right">
                 <h2>Log in</h2>

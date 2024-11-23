@@ -16,7 +16,7 @@
     <nav class="navbar ">
         <div class="container-fluid">
             <h5 class="navbar-brand navbar-dark navbar-expand-lg">Admin Dashboard</h5>
-            <button class="btn" type="button">Logout</button>
+            <button class="btn" type="button"><a href="{{route('admin.logout')}}">Logout</a></button>
         </div>
     </nav>
 

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //admin
 Route::get('/admin/login', [AdminController::class, 'showAdminForm'])->name('admin.loginForm');
 Route::post('/admin/loginPost', [AdminController::class, 'adminLogin'])->name('admin.login');
+Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
 Route::get('/admin/dashboard',[AdminCourseController::class,'dashboard'])->name("admin.dashboard");
 Route::get('/admin/courses',[AdminCourseController::class, 'showCourses'])->name('admin.view.course');
 
