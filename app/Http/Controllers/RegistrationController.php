@@ -11,25 +11,23 @@ use Illuminate\Support\Facades\Hash;
 class RegistrationController extends Controller
 {
     public function signup(Request $request)
-{
-  
+    {
+        // Create the new user registration
+        $reg = Register::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'selected_courses' => json_encode($request->selected_courses),
+        ]);
 
-    // Create the new user registration
-    $reg = Register::create([
-        'first_name' => $request->first_name,
-        'last_name' => $request->last_name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'selected_courses' => json_encode($request->selected_courses),
-    ]);
-
-    // Redirect or show an error based on registration success
-    if ($reg) {
-        return redirect('/login');
-    } else {
-        return view('signup', ['message' => 'Registration Unsuccessful']);
+        // Redirect or show an error based on registration success
+        if ($reg) {
+            return redirect('/login');
+        } else {
+            return view('signup', ['message' => 'Registration Unsuccessful']);
+        }
     }
-}
 
 
     public function login(Request $request)
@@ -70,7 +68,9 @@ class RegistrationController extends Controller
         return redirect('/');
     }
 
-    public function logout() {
+    public function logout()
+    {
+        Auth::logout();
         session()->flush();
         return redirect('/');
     }
@@ -80,7 +80,6 @@ class RegistrationController extends Controller
         $email = session()->get('login');
         $user = User::where('email', $email)->first();
 
-        return view('profile',['userDetails'=>$user]);
+        return view('profile', ['userDetails' => $user]);
     }
-
 }

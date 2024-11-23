@@ -5,17 +5,24 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\User;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
     public function dashboard()
     {
-        $courses = Course::count();
-        $users = User::count();
-
-        return view('admin.dashboard', compact('courses', 'users'));
+        if(session()->has('adminLogin'))
+        {
+            $courses = Course::count();
+            $users = User::count();
+    
+            return view('admin.dashboard', compact('courses', 'users'));
+        }
+        return redirect()->route('admin.loginForm');
+       
 
     }
     public function showCourses()

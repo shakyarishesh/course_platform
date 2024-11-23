@@ -26,34 +26,17 @@ class AdminController extends Controller
 
         if ($validate_data) {
             $admin = Admin::where('email', $request->email)->first();
-            if ($admin && Hash::check($request->password, $admin->password)) {
-                // Fetch total courses and users
-                $courses = Course::count(); // Total number of courses
-                $users = User::count();     // Total number of users
-
-                return view('admin.dashboard', [
-                    'courses' => $courses,
-                    'users' => $users
-                ]);
-            } else {
-                return back()->with('error', 'Invalid login credentials');
+            if($request->email == $admin->email && Hash::check($request->password, $admin->password))
+            {
+                session()->put('adminLogin', $admin);
+                return redirect()->route('admin.dashboard');
             }
         }
     }
 
-     public function adminDashboard()
+    public function adminLogout()
     {
-        // Fetch total courses and users
-        $courses = Course::count(); // Count total courses
-        $users = User::count();     // Count total users
-
-        // Pass data to the view
-        return view('admin.dashboard', [
-            'courses' => $courses, // Updated key
-            'users' => $users,
-        ]);
+        session()->flush();
+        return redirect()->route('admin.loginForm');
     }
 }
-
-
-
