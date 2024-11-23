@@ -61,9 +61,7 @@
                             <p>No popular courses available at the moment.</p>
                         @endisset
                 </div>
-                    <div class="pagination">
-                        {!! $courses->links('pagination::bootstrap-4') !!}
-                    </div>
+                    
             </section>
 
 
