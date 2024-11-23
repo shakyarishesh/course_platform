@@ -43,9 +43,30 @@
             <section class="popular">
                 <h2>Popular courses</h2>
                 <div class="courses">
-                    <!-- Popular courses here -->
+                    @isset($popularCourses)
+                        @foreach ($popularCourses as $course)
+                    <div class="course-card">
+                        <a href="/course_detail/{{ $course->id }}">
+                            <img src="storage/{{ $course->image }}" alt="{{ $course->title }}">
+                            <div class="course-info">
+                                <h3>{{ $course->title }}</h3>
+                                <p class="category">{{ $course->category }}</p>
+                                <p class="level">{{ $course->level }}</p>
+                                <p class="price">${{ $course->price }}</p>
+                            </div>
+                        </a>
+                    </div>
+                    @endforeach
+                        @else
+                            <p>No popular courses available at the moment.</p>
+                        @endisset
                 </div>
+                    <div class="pagination">
+                        {!! $courses->links('pagination::bootstrap-4') !!}
+                    </div>
             </section>
+
+
 
             <section class="trending">
                 <h2>Trending courses</h2>

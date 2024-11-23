@@ -11,39 +11,44 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class CourseController extends Controller
 {
     public function courses()
-    {
-        // If the user is logged in, filter courses based on selected interests
-        if (session()->get('login')) {
-            $user_email = session()->get('login');
-            $user = User::where('email', $user_email)->first();
+{
+    // Fetch popular courses by default
+    $popularCourses = Course::all();
 
-            if ($user) {
-                $reg = Register::where('id', $user->reg_id)->first();
+    if (session()->get('login')) {
+        $user_email = session()->get('login');
+        $user = User::where('email', $user_email)->first();
 
-                if ($reg && $reg->selected_courses) {
-                    $selectedCourses = json_decode($reg->selected_courses);
+        if ($user) {
+            $reg = Register::where('id', $user->reg_id)->first();
 
-                    if (!empty($selectedCourses)) {
-                        $selectedCoursesArray = explode(',', $selectedCourses[0]);
-                        $selectedCoursesArray = array_map('trim', $selectedCoursesArray);
+            if ($reg && $reg->selected_courses) {
+                $selectedCourses = json_decode($reg->selected_courses);
 
-                        // Get only the courses that match the user's selected categories
-                        $filteredCourses = Course::whereIn('category', $selectedCoursesArray)->paginate(8);
+                if (!empty($selectedCourses)) {
+                    $selectedCoursesArray = explode(',', $selectedCourses[0]);
+                    $selectedCoursesArray = array_map('trim', $selectedCoursesArray);
 
-                        return view('index', ['courses' => $filteredCourses]);
-                    }
+                    $filteredCourses = Course::whereIn('category', $selectedCoursesArray)->paginate(8);
+
+                    return view('index', [
+                        'courses' => $filteredCourses,
+                        'popularCourses' => $popularCourses,
+                    ]);
                 }
             }
         }
-
-        // If the user is not logged in or has no selected courses, show all courses
-        $data = Course::paginate(8);
-        
-        
-        // return view('index', ['courses' => $paginatedCourses]);
-        // return view('courses.detail'); 
-        return view('index', ['courses' => $data]);
     }
+
+    // Default case: User not logged in or has no selected courses
+    $data = Course::paginate(8);
+
+    return view('index', [
+        'courses' => $data,
+        'popularCourses' => $popularCourses, // Pass the variable here
+    ]);
+}
+
 
     public function createCategoryVector(array $selectedCategories, $allCategories)
     {
