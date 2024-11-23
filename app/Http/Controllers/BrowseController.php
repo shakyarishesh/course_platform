@@ -23,7 +23,7 @@ class BrowseController extends Controller
     
         // Fetch courses, filtering by title if a search query exists
         $courses = Course::when($searchQuery, function ($query, $searchQuery) {
-            $query->where('category', 'LIKE', "%$searchQuery%");
+            $query->where('title', 'LIKE', "%$searchQuery%");
         })->get(); 
     
         // Return the browse view with the filtered courses
