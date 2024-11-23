@@ -32,31 +32,33 @@
         <h2>Welcome back, Admin!</h2>
 
         <div class="row mb-4">
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Users</h5>
-                        <p class="card-text" id="total-users">{{$courses}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Courses</h5>
-                        <p class="card-text" id="total-courses">{{$users}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Enrollments</h5>
-                        <p class="card-text" id="total-enrollments">200</p>
-                    </div>
-                </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+                <p class="card-text" id="total-users">{{ $users }}</p>
             </div>
         </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Courses</h5>
+                <p class="card-text" id="total-courses">{{ $courses }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Enrollments</h5>
+                <p class="card-text" id="total-enrollments">200</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
 
     </div>
 

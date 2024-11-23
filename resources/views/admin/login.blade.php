@@ -21,9 +21,13 @@
         @endif
         <!-- Login Form -->
         <div id="login" class="form-container">
-            <div class="form-left">
-                <img src="storage/{{$course->image}}" alt="Login Image">
-            </div>
+        <div class="form-left">
+    @if(isset($course) && $course->image)
+        <img src="{{ asset('storage/' . $course->image) }}" alt="Login Image">
+    @else
+        <img src="{{ asset('path/to/default/image.jpg') }}" alt="Default Image">
+    @endif
+</div>
             <div class="form-right">
                 <h2>Log in</h2>
                 <form action="/admin/loginPost" method="POST">
