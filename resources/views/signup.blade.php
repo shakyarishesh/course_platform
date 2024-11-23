@@ -50,7 +50,7 @@
             <p>Already have an account? <a href="/login">Log in</a></p>
         </div>
         <div class="image-section">
-            <img src="storage/imgs/Course4.avif" alt="Background Image">
+            <img src="storage/imgs/User.svg" alt="Background Image">
         </div>
     </div>
     <script src="js/loginSignup.js"></script>

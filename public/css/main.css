@@ -50,9 +50,11 @@ main {
 }
 
 .course-card img {
-    max-width: 100%;
-    /* border-bottom: 1px solid #ddd; */
-    margin-bottom: 10px;
+    width: 100%;  
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 4px; 
+    margin-bottom: 10px; 
 }
 
 .course-info {
