@@ -16,8 +16,67 @@
 <body>
     <div class="container">
         @include('includes.header') <!-- Include the header -->
-
         <main>
+    @if (session()->has('login'))
+        <!-- Recommended Section -->
+        <section class="recommended">
+            <h2>Recommended for you</h2>
+            <div class="courses">
+                @foreach ($courses as $course)
+                    <div class="course-card">
+                        <a href="/course_detail/{{ $course->id }}">
+                            <img src="storage/{{ $course->image }}" alt="{{ $course->title }}">
+                            <div class="course-info">
+                                <h3>{{ $course->title }}</h3>
+                                <p class="category">{{ $course->category }}</p>
+                                <p class="level">{{ $course->level }}</p>
+                                <p class="price">${{ $course->price }}</p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            <!-- Pagination Links -->
+            <div class="pagination">
+                {!! $courses->links('pagination::bootstrap-4') !!}
+            </div>
+        </section>
+    @endif
+
+    <!-- Popular Courses Section -->
+    <section class="popular">
+        <h2>Popular courses</h2>
+        <div class="courses">
+            @isset($popularCourses)
+                @foreach ($popularCourses as $course)
+                    <div class="course-card">
+                        <a href="/course_detail/{{ $course->id }}">
+                            <img src="storage/{{ $course->image }}" alt="{{ $course->title }}">
+                            <div class="course-info">
+                                <h3>{{ $course->title }}</h3>
+                                <p class="category">{{ $course->category }}</p>
+                                <p class="level">{{ $course->level }}</p>
+                                <p class="price">${{ $course->price }}</p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            @else
+                <p>No popular courses available at the moment.</p>
+            @endisset
+        </div>
+    </section>
+
+    <!-- Trending Section (if applicable) -->
+    <section class="trending">
+        <h2>Trending courses</h2>
+        <div class="courses">
+            <!-- Trending courses here -->
+        </div>
+    </section>
+</main>
+
+        <!-- <main>
             <section class="recommended">
                 <h2>Recommended for you</h2>
                 <div class="courses">
@@ -35,7 +94,7 @@
                         </div>
                     @endforeach
                 </div>
-                <!-- Pagination Links -->
+                Pagination Links
                     <div class="pagination">
                         {!! $courses->links('pagination::bootstrap-4') !!}
                     </div>
@@ -69,10 +128,10 @@
             <section class="trending">
                 <h2>Trending courses</h2>
                 <div class="courses">
-                    <!-- Trending courses here -->
+                    Trending courses here
                 </div>
             </section>
-        </main>
+        </main> -->
 
         @include('includes.footer') <!-- Include the footer -->
     </div>
